@@ -1,0 +1,10 @@
+[
+  {
+    "group_id": 0,
+    "text": "Image A",
+    "value": 0,
+    "type_data": 0,
+    "feedback_0":"<b>Correct Answer!</b> <b>Image A</b> should have been selected. Congratulations.",
+    "feedback_1":"<b>Correct Answer!</b> <b>Image A</b> should have been selected. Congratulations."
+  }
+]

@@ -6,7 +6,7 @@ const path = require("path");
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: './which-one-is-special-vue3/',
+  base: '/which-one-is-special-vue3/',
   optimizeDeps: {
       esbuildOptions: {
         target: 'es2020'

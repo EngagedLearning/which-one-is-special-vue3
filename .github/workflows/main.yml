@@ -21,12 +21,9 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # Single deploy job since we're just deploying
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
+  gh-pages-deploy-wois:
+    name: Deploying to gh-pages
+    runs-on: ubuntu-latest  
     steps:
       - name: Checkout
         uses: actions/checkout@v3

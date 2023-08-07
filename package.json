@@ -28,6 +28,8 @@
     "eslint": "^8.45.0",
     "eslint-plugin-vue": "^9.15.1",
     "unplugin-vue-components": "^0.25.1",
+    "execa": "latest",
+    "gh-pages": "^3.2.3",
     "vite": "^2.9.16"
   },
   "eslintConfig": {

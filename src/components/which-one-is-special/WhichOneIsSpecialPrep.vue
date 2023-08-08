@@ -830,9 +830,15 @@ export default defineComponent({
 
                 if (index == 0) {
                   if (this.image_overlay_selected[i] == 1) {
-                    image_overlay_c[index] =
-                      "image-overlay-select";
-
+                  //  image_overlay_c[index] =
+                  //    "image-overlay-select";
+                    if (i < 2) {
+                      image_overlay_c[i] =
+                        "image-overlay-select";
+                    } else {
+                      image_overlay_c[i] =
+                        "image-overlay-select-second-row";
+                    }
                     // this.clearSelectedFigCaption(i);
                     // this.clearImageOverlaySelected(i);
                   } else if (this.image_overlay_selected[i] == 0) {
@@ -850,10 +856,10 @@ export default defineComponent({
                   if (this.image_overlay_selected[i] == 1) {
                     console.log('image_overlay_select is a 1');
                     if (i < 2) {
-                      image_overlay_c[index] =
+                      image_overlay_c[i] =
                         "image-overlay-select";
                     } else {
-                      image_overlay_c[index] =
+                      image_overlay_c[i] =
                         "image-overlay-select-second-row";
                     }
                     // this.clearSelectedFigCaption(i);
@@ -875,10 +881,10 @@ export default defineComponent({
                 if (this.image_overlay_selected[i] == 1) {
                   //console.log('image_overlay_select is a 1 resetting')
                   if (i < 2) {
-                    image_overlay_c[index] =
+                    image_overlay_c[i] =
                       "image-overlay-select";
                   } else {
-                    image_overlay_c[index] =
+                    image_overlay_c[i] =
                       "image-overlay-select-second-row";
                   }
            //       image_overlay_c[i] = "image-overlay-select";

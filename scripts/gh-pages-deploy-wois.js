@@ -15,7 +15,7 @@ const fs = require("fs");
     console.log('folderName ' + folderName);
     
     //  await execa("git", ["--work-tree=", folderName, "add", "--all"]);
-      await execa("git --work-tree='dist' add --all");
+      await execa("git --work-tree 'dist' add --all");
     console.log('git worktree add');
     await execa("git", ["--work-tree=", folderName, "commit", "-m", "gh-pages"]);
     console.log("Pushing to gh-pages...");

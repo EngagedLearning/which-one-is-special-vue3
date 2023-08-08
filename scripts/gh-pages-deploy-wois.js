@@ -15,14 +15,14 @@ const fs = require("fs");
     console.log('folderName ' + folderName);
     
     //  await execa("git", ["--work-tree=", folderName, "add", "--all"]);
-      await execa("git --work-tree 'dist' add --all");
+      await execa("git --work-tree dist add --all");
     console.log('git worktree add');
-    await execa("git", ["--work-tree=", folderName, "commit", "-m", "gh-pages"]);
+    await execa("git --work-tree dist commit -m gh-pages")//, ["--work-tree=", folderName, "commit", "-m", "gh-pages"]);
     console.log("Pushing to gh-pages...");
-    await execa("git", ["push", "origin", "HEAD:gh-pages", "--force"]);
-    await execa("rm", ["-r", folderName]);
-    await execa("git", ["checkout", "-f", "main"]);
-    await execa("git", ["branch", "-D", "gh-pages"]);
+    await execa("git push origin HEAD:gh-pages --force")//, ["push", "origin", "HEAD:gh-pages", "--force"]);
+    await execa("rm -r dist")//, ["-r", folderName]);
+    await execa("git checkout -f main")//, ["checkout", "-f", "main"]);
+    await execa("git branch -D gh-pages")//, ["branch", "-D", "gh-pages"]);
     console.log("Successfully deployed");
   } catch (e) {-
     console.log(e.message);

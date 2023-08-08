@@ -8,7 +8,7 @@
 <script>
 import { v4 as uuidv4 } from "uuid";
 
-import AWS from "aws-sdk";
+//import AWS from "aws-sdk";
 
 export default {
   name: 'App',
@@ -83,7 +83,7 @@ export default {
       var bucketRegion = "us-west-2";
       var IdentityPoolId = "us-west-2:77d2e523-774d-4782-a18b-90c1158a0906";
 
-      AWS.config.update({
+  /*    AWS.config.update({
         region: bucketRegion,
         credentials: new AWS.CognitoIdentityCredentials({
           IdentityPoolId: IdentityPoolId,
@@ -92,7 +92,7 @@ export default {
       var s3 = new AWS.S3({
         apiVersion: "2006-03-01",
         params: { Bucket: s3BucketName },
-      });
+      });*/
       // console.log("s3 " + JSON.stringify(s3))
       // try to write the data to the bucket
       var buf = Buffer.from(JSON.stringify(problemData));
@@ -103,14 +103,14 @@ export default {
         ContentEncoding: "base64",
         ContentType: "application/json",
       };
-      s3.upload(data, function (err, data) {
+      /*s3.upload(data, function (err, data) {
         if (err) {
           console.log(err);
           console.log("Error uploading data: ", data);
         } else {
           console.log("succesfully uploaded!!!");
         }
-      });
+      });*/
     },
     postLogData: function (problemData, type) {
       console.log("problemData: " + JSON.stringify(problemData));

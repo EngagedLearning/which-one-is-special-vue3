@@ -19,7 +19,12 @@ export default defineConfig({
     define: {
     // By default, Vite doesn't include shims for NodeJS/
     // necessary for segment analytics lib to work
-    global: {},
+      // use this for local development
+     // global: {},
+      // use this for production build 
+      'process.env': {},
+    // global: {},
+    '_vm._self._c': {},
   },
     
 })

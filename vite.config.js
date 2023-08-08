@@ -16,6 +16,7 @@ export default defineConfig({
        // }),
         vue(),
   ],
+    // added base to find the assets in the right place
     base:'/which-one-is-special-vue3/',
     define: {
     // By default, Vite doesn't include shims for NodeJS/

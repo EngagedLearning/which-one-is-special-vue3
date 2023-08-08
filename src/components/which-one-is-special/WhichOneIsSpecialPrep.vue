@@ -2605,12 +2605,9 @@ export default defineComponent({
     },
     getImageUrl: function (filename) {
       // this works for development
-    //  return new URL(`../../assets/images/` + filename, import.meta.url).href
+   //   return new URL(`../../assets/images/` + filename, import.meta.url).href
     // this works for production 
-       return new URL(`../../assets/images/${filename}`, import.meta.url).href
-    },
-    loadImagedata: function () {
-      console.log('loading JSON Image data')
+        return new URL(`../../assets/images/${filename}`, import.meta.url).href
     }
         
     }

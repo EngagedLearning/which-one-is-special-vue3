@@ -687,6 +687,7 @@ export default defineComponent({
     
   methods: {
     setImageOverlaySelected: function (index) {
+      console.log('setting image overlay');
       if (this.group_choice < 12) {
         this.image_overlay_selected[index] = 1;
       } else {
@@ -694,6 +695,7 @@ export default defineComponent({
       }
     },
     clearImageOverlaySelected: function (index) {
+      console.log('clearing Image Overlay');
       if (this.group_choice < 12) {
         this.image_overlay_selected[index] = 0;
       } else {
@@ -980,10 +982,10 @@ export default defineComponent({
                   if (this.image_overlay_selection == 0) {
                     if (this.image_overlay_selected[i] == 1) {
                       if (i < 2) {
-                      image_overlay_c[index] =
+                      image_overlay_c[i] =
                         "image-overlay-select";
                     } else {
-                      image_overlay_c[index] =
+                      image_overlay_c[i] =
                         "image-overlay-select-second-row";
                     }
                    //   image_overlay_c[i] =
@@ -1005,10 +1007,10 @@ export default defineComponent({
                   } else {
                     if (this.image_overlay_selected[i] == 1) {
                       if (i < 2) {
-                      image_overlay_c[index] =
+                      image_overlay_c[i] =
                         "image-overlay-select";
                     } else {
-                      image_overlay_c[index] =
+                      image_overlay_c[i] =
                         "image-overlay-select-second-row";
                     }
                    //   image_overlay_c[index] =
@@ -1033,14 +1035,14 @@ export default defineComponent({
                   //("resetting overlay to previous values");
                   if (this.image_overlay_selected[i] == 1) {
                     if (i < 2) {
-                    image_overlay_c[index] =
+                    image_overlay_c[i] =
                       "image-overlay-select";
                   } else {
-                    image_overlay_c[index] =
+                    image_overlay_c[i] =
                       "image-overlay-select-second-row";
                   }
            //         image_overlay_c[i] = "image-overlay-select";
-                    this.setImageOverlaySelected(i);
+                 //   this.setImageOverlaySelected(i);
                   } else {
                     if (i < 2) {
                     image_overlay_c[i] =

@@ -8,7 +8,7 @@
 <script>
 import { v4 as uuidv4 } from "uuid";
 
-//import AWS from "aws-sdk";
+//import S3 from "@aws-sdk/client-s3";
 
 export default {
   name: 'App',
@@ -83,13 +83,13 @@ export default {
       var bucketRegion = "us-west-2";
       var IdentityPoolId = "us-west-2:77d2e523-774d-4782-a18b-90c1158a0906";
 
-  /*    AWS.config.update({
+   /*  var s3config = S3.config.update({
         region: bucketRegion,
-        credentials: new AWS.CognitoIdentityCredentials({
+        credentials: new S3.CognitoIdentityCredentials({
           IdentityPoolId: IdentityPoolId,
         }),
-      });
-      var s3 = new AWS.S3({
+      });*
+      var s3 = new S3({
         apiVersion: "2006-03-01",
         params: { Bucket: s3BucketName },
       });*/
@@ -103,6 +103,7 @@ export default {
         ContentEncoding: "base64",
         ContentType: "application/json",
       };
+     // s3.
       /*s3.upload(data, function (err, data) {
         if (err) {
           console.log(err);

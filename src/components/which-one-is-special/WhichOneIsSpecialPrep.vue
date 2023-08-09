@@ -29,9 +29,7 @@
                       style="margin-top: 0%;"
                       @click="selectImage(0)"
                       >
-                 <figure class="figure-img img-fluid">
-                  
-                 
+                 <figure class="figure-img img-fluid select_cursor">
                   <figcaption
                   class="figure-caption text-center" 
                     style="
@@ -61,7 +59,7 @@
                       style="margin-top: 0%;margin-bottom:5%;"
                       @click="selectImage(1)"
                     >
-                <figure class="figure-img img-fluid" style="width: 75%">
+                <figure class="figure-img img-fluid select_cursor" style="width: 75%">
                   
                   <figcaption
                    class="figure-caption text-center" 
@@ -88,7 +86,7 @@
                   <div v-if="question_type == 0 && first_question">
                   <el-row>
                       <p style="margin-left: 5%; margin-right: 5%; font-size: 1.0em">
-                        Select the image or images
+                        Select every image
                         <b><i>{{ this.wois_feature[this.group_choice] }}</i></b>
                       </p>
                   </el-row>
@@ -153,7 +151,7 @@
                     <div v-if="question_type == 1 && first_question">
                       <el-row>
                         <p style="margin-left: 10%; margin-right: 5%; font-size: 1.0em">
-                        Select the statement or statements
+                        Select every statement
                           <b><i>{{ this.wois_feature[this.group_choice] }}</i></b>
                         </p>
                       </el-row>
@@ -358,7 +356,7 @@
                         :class="image_overlay_computed[2]"
                         @click="selectImage(2)"
                 >
-                <figure class="figure-img img-fluid" style="width: 75%"> 
+                <figure class="figure-img img-fluid select_cursor" style="width: 75%"> 
                   <figcaption
                     class="figure-caption text-center" 
                       style="
@@ -386,7 +384,7 @@
                         :class="image_overlay_computed[3]"
                         @click="selectImage(3)"
                 >
-                  <figure class="figure-img img-fluid" style="width: 75%">   
+                  <figure class="figure-img img-fluid select_cursor" style="width: 75%">   
                     <figcaption
                       class="figure-caption text-center" 
                       style="
@@ -629,16 +627,16 @@ export default defineComponent({
         "labeled with the top caption 'Image A:'",
         "which show(s) chocolate chips?",
         "of money which show(s) a value greather than 1200?",
-        "that do(es) not show the color red?",
+        "that does not show the color red?",
         "where the value of the money is equal to 10 cents",
         "with an odd number of coins.",
         "which shows an image of an apple",
-        "which shows images of fruit",
-        "that do(es) not show the color red",
+        "which shows a depiction of fruit",
+        "that does not show the color red",
         "which shows more than 10 circles",
         "which shows an image of one or more squares",
         "which shows an even number of circles",
-        "which do(es) not contain the letter 'e'",
+        "which does not contain the letter 'e'",
         "which contains a number",
         "which is labeled with a 'B'",
         "which contains a a name for a mammal",
@@ -652,15 +650,15 @@ export default defineComponent({
           "that not showing the color red",
           "the value of the money equal to 10 cents",
           "that having an odd number of coins",
-          "an image or images of an apple",
-          "an image or images of fruit",
+          "every image of an apple",
+          "every image which depicts fruit",
           "no red color",
           "more than 10 circles",
-          "an image or images of a square",
+          "every image of a square",
           "an even number of circles",
-          "the statement(s) which do(es) not contain the letter 'e'",
+          "every statement which does not contain the letter 'e'",
           "a number",
-          "a statement labeled with a 'B'",
+          "every statement labeled with a 'B'",
           "a word for a mammal",
           "a word for a bird",
           "an Enlish language word",
@@ -703,12 +701,16 @@ export default defineComponent({
       }
     },
     setSelectedFigCaption: function (index) {
-      //console.log("setting selected FigCaption");
-      if (!this.image_caption_1[index].includes("&#x2611;")) {
-        this.image_caption_1[index] = this.image_caption_1[index] +
-          "<br/><span style='color:blue;font-size:18px;'>&#x2611;</span><span style='font-size:10px;text-align:left;'> Selected</span>";
-      }
-      this.setImageOverlaySelected(index);
+      console.log("setting selected FigCaption");
+    //  if (!this.image_caption_1[index].includes("&#x2611;")) {
+    //    this.image_caption_1[index] = this.image_caption_1[index] 
+      //    "<br/><span style='color:blue;font-size:18px;'>&#x2611;</span><span style='font-size:10px;text-align:left;'> Selected</span>";
+    //  }
+      if (this.image_overlay_selected[index] == 0) {
+        this.setImageOverlaySelected(index);
+      } else {
+        this.clearImageOverlaySelected(index); 
+      } 
       this.computeSubmitDisabled();
     },
      clearSelectedFigCaption: function (index) {
@@ -796,15 +798,16 @@ export default defineComponent({
     selectImage: function (event) {
       console.log('Selected Image number :' + event);
       this.image_overlay_selection = -1;
-      if (!this.second_question) {
+      if (!this.second_question  && !this.continue_mode) {
         this.image_overlay_selection = event;
-      }
-      if (!this.image_caption_1[event].includes("Selected")) {
-        this.setSelectedFigCaption(event);
-      } else {
-        this.clearSelectedFigCaption(event);
-      }
-      this.computeImageOverlay(event);
+
+        if (!this.image_caption_1[event].includes("Selected")) {
+          this.setSelectedFigCaption(event);
+        } else {
+          this.clearSelectedFigCaption(event);
+        }
+        this.computeImageOverlay(event);
+      }  
     },
     computeImageOverlay: function (index) { // index is current action index
       let image_overlay_c = this.image_overlay_computed.slice();
@@ -821,17 +824,21 @@ export default defineComponent({
           console.log('inside select_mode_0 and not continue mode')
           this.image_overlay_selection = -1; //reset to stop back to back events. 
           if (index != -1) {
-
             for (let i = 0; i < this.image_overlay_computed.length; i++) {
-              console.log('i is ' + i);
-              console.log('image_overlay_c ' + image_overlay_c);
+             // console.log('i is ' + i);
+             // console.log('index is ' + index);
+             // console.log('image_overlay_c ' + image_overlay_c);
               if (i == index) {
                 // toggle the answer
-
+                console.log('i == index ');
                 if (index == 0) {
+                  console.log('resetting index = 0 ')
                   if (this.image_overlay_selected[i] == 1) {
                   //  image_overlay_c[index] =
                   //    "image-overlay-select";
+                 //   console.log('image_overlay_selected ' + this.image_overlay_selected);
+                 //   console.log('image_overlay_c before ' + image_overlay_c);
+
                     if (i < 2) {
                       image_overlay_c[i] =
                         "image-overlay-select";
@@ -841,6 +848,9 @@ export default defineComponent({
                     }
                     // this.clearSelectedFigCaption(i);
                     // this.clearImageOverlaySelected(i);
+               //     console.log('image_overlay_selected ' + this.image_overlay_selected);
+               //      console.log('image_overlay_c after ' + image_overlay_c);
+
                   } else if (this.image_overlay_selected[i] == 0) {
                     if (i < 2) {
                       image_overlay_c[i] =
@@ -853,8 +863,10 @@ export default defineComponent({
                     // this.setImageOverlaySelected(i);
                   }
                 } else {
+                  // image_overlay_selected has already been set elsewhere
+                  // just update image_overlay_c
                   if (this.image_overlay_selected[i] == 1) {
-                    console.log('image_overlay_select is a 1');
+                //    console.log('image_overlay_selected is a 1');
                     if (i < 2) {
                       image_overlay_c[i] =
                         "image-overlay-select";
@@ -877,9 +889,9 @@ export default defineComponent({
                 }
               } else {
                 // all others reset them to their previous values.
-                //console.log("resetting overlay to previous values");
+             //   console.log("resetting overlay to previous values");
                 if (this.image_overlay_selected[i] == 1) {
-                  //console.log('image_overlay_select is a 1 resetting')
+              //    console.log('image_overlay_select is a 1 resetting')
                   if (i < 2) {
                     image_overlay_c[i] =
                       "image-overlay-select";
@@ -889,6 +901,7 @@ export default defineComponent({
                   }
            //       image_overlay_c[i] = "image-overlay-select";
                 } else {
+               //   console.log('setting previous value 0')
                   if (i < 2) {
                     image_overlay_c[i] =
                       "image-overlay";
@@ -957,8 +970,8 @@ export default defineComponent({
             !this.select_mode_0 &&
             !this.continue_mode
           ) {
-            console.log("select after continue");
-            console.log("correct_answer_array " + this.correct_answer_array);
+           // console.log("select after continue");
+           // console.log("correct_answer_array " + this.correct_answer_array);
             this.image_overlay_selection = -1; //reset to stop back to back events. 
             if (index != -1) {
               for (let i = 0; i < this.image_overlay_computed.length; i++) {
@@ -975,8 +988,8 @@ export default defineComponent({
                     }
                    //   image_overlay_c[i] =
                    //     "image-overlay-select";
-                      this.setImageOverlaySelected(i);
-                      this.setSelectedFigCaption(i);
+                    //  this.setImageOverlaySelected(i);
+                    //  this.setSelectedFigCaption(i);
                     } else if (this.image_overlay_selected[i] == 0) {
                       if (i < 2) {
                       image_overlay_c[i] =
@@ -986,8 +999,8 @@ export default defineComponent({
                     }
                      // image_overlay_c[index] =
                      //   "image-overlay";
-                      this.clearImageOverlaySelected(i);
-                      this.clearSelectedFigCaption(i);
+                    //  this.clearImageOverlaySelected(i);
+                    //  this.clearSelectedFigCaption(i);
                     }
                   } else {
                     if (this.image_overlay_selected[i] == 1) {
@@ -1000,8 +1013,8 @@ export default defineComponent({
                     }
                    //   image_overlay_c[index] =
                    //     "image-overlay-select";
-                      this.setImageOverlaySelected(i);
-                      this.setSelectedFigCaption(i);
+                   //   this.setImageOverlaySelected(i);
+                   //   this.setSelectedFigCaption(i);
                     } else if (this.image_overlay_selected[i] == 0) {
                       if (i < 2) {
                       image_overlay_c[i] =
@@ -1011,8 +1024,8 @@ export default defineComponent({
                     }
                      // image_overlay_c[index] =
                      //   "image-overlay";
-                      this.clearImageOverlaySelected(i);
-                      this.clearSelectedFigCaption(i);
+                  //    this.clearImageOverlaySelected(i);
+                  //    this.clearSelectedFigCaption(i);
                     }
                   }
                 } else {
@@ -1036,13 +1049,13 @@ export default defineComponent({
                     image_overlay_c[i] = "image-overlay-second-row"
                   }
          //           image_overlay_c[i] = "image-overlay";
-                    this.clearSelectedFigCaption(i);
+         //           this.clearSelectedFigCaption(i);
                   }
                 }
               }
           }
         }
-        console.log('image_overlay_c ' + image_overlay_c); 
+        console.log('image_overlay_c bottom ' + image_overlay_c); 
           this.image_overlay_computed = image_overlay_c;
           console.log('image_overlay_computed new ' + this.image_overlay_computed)
       }
@@ -1350,12 +1363,12 @@ export default defineComponent({
             this.answer_data.push(new_data);
             if (this.group_choice < 12) {
               this.second_question_text =
-                "<b>Image A</b> (yellow background) is the only image <b>" +
+                "<b>True</b> or <b>False</b>: the highlighted image (<b>Image A</b>) is the only one <b>" +
                 this.wois_feature[this.group_choice] +
                 "</b>";
             } else {
               this.second_question_text =
-                "<b>Statement A</b> in the <b>Correct Answer</b> is the only statement <b>" +
+                "<b>True</b> or <b>False</b>: <b>Statement A</b> in the <b>Correct Answer</b> is the only statement <b>" +
                 this.wois_feature[this.group_choice] +
                 "</b>";
             }
@@ -1410,12 +1423,12 @@ export default defineComponent({
 
               if (this.group_choice < 12) {
                 this.second_question_text =
-                  "<b>Image A</b> (yellow background) is the only image <b>" +
+                  "<b>True</b> or <b>False</b>: the highlighted image (<b>Image A</b>) is the only one <b>" +
                   this.wois_feature[this.group_choice] +
                   "</b>";
-              } else {
+              } else {http://localhost:3000/which-one-is-special-vue3/#/WhichOneIsSpecialPrep_1
                 this.second_question_text =
-                  "<b>Statement A</b> in the <b> Correct Answer</b> is the only statement <b>" +
+                  "<b>True</b> or <b>False</b>: <b>Statement A</b> in the <b> Correct Answer</b> is the only statement <b>" +
                   this.wois_feature[this.group_choice] +
                   "</b>";
               }
@@ -2667,7 +2680,7 @@ td {
   position: absolute;
   background-color: #dd88ea;
   opacity: 0.70;
-  border: 10px dashed blue;
+  border: 10px solid blue;
 }
 .image-overlay-select-second-row {
   width: 325px;
@@ -2675,8 +2688,8 @@ td {
   position: absolute;
   background-color: #dd88ea;
   opacity: 0.70;
-  border: 10px dashed blue;
-   margin-top:11%;
+  border: 10px solid blue;
+  margin-top:11%;
 }
 .image-overlay-incorrect {
   width: 325px;
@@ -2700,7 +2713,7 @@ td {
   position: absolute;
   background-color: lightslategray;
   opacity: 0.7;
-  border: 10px solid blue;
+  border: 3px solid green;
 }
 .image-overlay-second-row {
   width: 325px;
@@ -2708,7 +2721,7 @@ td {
   position: absolute;
   background-color: lightslategray;
   opacity: 0.7;
-  border: 10px solid blue;
+  border: 3px solid green;
   margin-top:11%;
 }
 .image-overlay-second-row-second-question {
@@ -2717,7 +2730,7 @@ td {
   position: absolute;
   background-color: lightslategray;
   opacity: 0.7;
-  border: 10px solid blue;
+  border: 3px solid green;
   margin-top:5%;
 }
 .image-overlay-feedback {
@@ -2741,5 +2754,8 @@ td {
   margin-left: auto;
   margin-right: auto;
   width: 55%;
+}
+.select_cursor {
+  cursor:pointer;
 }
 </style>

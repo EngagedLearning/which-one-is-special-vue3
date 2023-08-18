@@ -76,7 +76,7 @@
                                 </el-select>
                         </el-form-item>
                         <el-form-item label = "Main Language">
-                                    <el-select id="input-9" class="m-2" v-model="form.language" :options="languages" placeholder="Main language spoken at home?">
+                                    <el-select id="input-9" class="m-2" v-model="form.languages" :options="languages" placeholder="Main language spoken at home?">
                                         <el-option
                                             v-for="item in languages" :key="item.value" :label="item.label" :value="item.value"
                                             >

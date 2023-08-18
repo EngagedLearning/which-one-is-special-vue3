@@ -1949,8 +1949,9 @@ export default defineComponent({
           };
 
           // done all of the problems.
-          this.$emit("saveData", this.problem_data);
-          // got to the Thankyou page
+          console.log('emiting event');
+          this.$emit("save-data", this.problem_data);
+          // go to the Survey page page
           this.$router.push("/Survey");
         }
       }

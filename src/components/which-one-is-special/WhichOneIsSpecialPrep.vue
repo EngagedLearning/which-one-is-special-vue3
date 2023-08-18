@@ -1,5 +1,6 @@
 <template>
     <div>
+      
       <el-dialog
                   v-model="show_feedback_modal"
                   title="Question Feedback"
@@ -10,6 +11,7 @@
                   :close-on-press-escape = 'false'
                   :show-close="false"
                   center
+                  style="margin-top:25%;margin-right:1%;"
                   dark
                 >
                 <hr />
@@ -22,8 +24,8 @@
         </div>
         <div >
           <el-row>
-            <el-col v-if = "image_deck[0] != null && group_choice < 12" 
-                  :span="9" :offset="0.5" style="margin-bottom:2%;">
+            <el-col v-if = "image_deck[0] != null && group_choice < this.image_exp_max" 
+                  :span="8" :offset="1.0" style="margin-bottom:2%;">
                   <div
                       :class="image_overlay_computed[0]"
                       style="margin-top: 0%;"
@@ -40,19 +42,22 @@
                 "
                     v-html="image_caption_1[0]"
                   ></figcaption>
-                  <img
+                  <img v-if="group_choice < this.image_exp_max"
                     :src="getImageUrl(this.image_0_computed)"
                     class="image-center"
                     style = "margin-top:1%;margin-left:25%;"
                  
                   />
+                  <!--v-html v-if="group_choice >= 12" style="font-size:24px;">
+                    {{ this.image_0_computed }} 
+                    </v-html-->
                 </figure>
                 </div>
             </el-col>          
               <el-col
                 :span="9" :offset="1"
                 class="justify-content-center"
-                v-if="image_deck[1] != null && group_choice < 12"
+                v-if="image_deck[1] != null && group_choice < this.image_exp_max"
               >
               <div
                       :class="image_overlay_computed[1]"
@@ -72,11 +77,14 @@
                 "
                     v-html="image_caption_1[1]"
                   ></figcaption>
-                  <img
+                  <img v-if = "group_choice < this.image_exp_max"
                     :src="getImageUrl(this.image_1_computed)"
                     class="image-center"
                     style = "margin-top:1%;margin-left:25%;"
                   />
+                  <!--v-html v-if="group_choice >= 12" style="font-size:24px;">
+                  {{ this.image_1_computed}} 
+                  </v-html-->
                 </figure>
                 </div>
               </el-col>
@@ -85,7 +93,7 @@
                 <el-col :span = "24">
                   <div v-if="question_type == 0 && first_question">
                   <el-row>
-                      <p style="margin-left: 5%; margin-right: 5%; font-size: 1.0em">
+                      <p style="margin-left: 5%; margin-right: 7.5%; font-size: 1.0em">
                         Select every image
                         <b><i>{{ this.wois_feature[this.group_choice] }}</i></b>
                       </p>
@@ -150,7 +158,7 @@
                     <el-col :span = "24">
                     <div v-if="question_type == 1 && first_question">
                       <el-row>
-                        <p style="margin-left: 10%; margin-right: 5%; font-size: 1.0em">
+                        <p style="margin-left: 10%; margin-right: 7.5%; font-size: 1.0em">
                         Select every statement
                           <b><i>{{ this.wois_feature[this.group_choice] }}</i></b>
                         </p>
@@ -301,7 +309,7 @@
                           </el-col>
                         </el-row>
                     </div>
-                   <el-row style="margin-left: 5%; margin-right: 2%; margin-top: 3%;">
+                   <el-row style="margin-left: 5%; margin-right: 2%; margin-top:3%;">
                     <div v-if="continue_mode">
                       <el-col
                         :span="24"
@@ -350,8 +358,8 @@
     </div>
         <div>
           <el-row>
-              <el-col v-if = "image_deck[2] != null && group_choice < 12" 
-              :span="9" :offset="0.5" class="justify-content-center">
+              <el-col v-if = "image_deck[2] != null && group_choice < this.image_exp_max" 
+              :span="8" :offset="1.0" class="justify-content-center">
                 <div
                         :class="image_overlay_computed[2]"
                         @click="selectImage(2)"
@@ -378,7 +386,7 @@
               <el-col
                   :span="9" :offset="1"
                   class="justify-content-center"
-                  v-if="image_deck[3] != null && group_choice < 12"
+                  v-if="image_deck[3] != null && group_choice < this.image_exp_max"
               >
                 <div
                         :class="image_overlay_computed[3]"
@@ -407,10 +415,10 @@
               
                 <el-col v-if="continue_mode && question_type == 0"
                   :span="5" :offset="19"
-                  style="border: 1px solid black; margin-right: 5%;"
+                  style="border: 1px solid black; margin-right: 5%;margin-top:11%;"
                 >
                   <div
-                      v-if="this.feedback_counter <= 1 && this.answer_incorrect && this.group_choice < 12">
+                      v-if="this.feedback_counter <= 1 && this.answer_incorrect && this.group_choice < this.image_exp_max">
                       <p style="text-align:left;margin-left: 5px;">
                           Note the feedback for your answer near the top of each image.
                       </p>
@@ -444,6 +452,7 @@ export default defineComponent({
     },
   data() {
     return {
+      image_exp_max:12,
       num_groups: 6,
       wois_title: "Find the Property",
       group_choice: 10,
@@ -584,7 +593,7 @@ export default defineComponent({
     //this.wois_options = wois_options_file;
     //this.wois_data = wois_data_file;
     
-    
+    this.image_exp_max = 12;
     this.computed_image_array[0] = this.image_0_computed;
     this.computed_image_array[1] = this.image_1_computed;
     this.computed_image_array[2] = this.image_2_computed;
@@ -595,7 +604,7 @@ export default defineComponent({
     this.image_overlay_computed[3] = "image-overlay-second-row";
     this.group_choice = 7;
     this.group_choice_array.push(this.group_choice);
-    if (this.group_choice < 12) {
+    if (this.group_choice < this.image_exp_max) {
       this.image_0_text = this.image_deck[0].image_name;
       this.image_1_text = this.image_deck[1].image_name;
       this.image_2_text = this.image_deck[2].image_name;
@@ -606,11 +615,11 @@ export default defineComponent({
       this.image_2_text = "";
       this.image_3_text = "";
     }
-    this.image_overlay_selected = this.group_choice < 12 ? [0,0,0,0] : ["","","",""] 
-    this.image_caption_1[0] = this.group_choice < 12 ? "Image A:" : "";
-    this.image_caption_1[1] = this.group_choice < 12 ? "Image B:" : "";
-    this.image_caption_1[2] = this.group_choice < 12 ? "Image C:" : "";
-    this.image_caption_1[3] = this.group_choice < 12 ? "Image D:" : "";
+    this.image_overlay_selected = this.group_choice < this.image_exp_max ? [0,0,0,0] : ["","","",""] 
+    this.image_caption_1[0] = this.group_choice < this.image_exp_max ? "Image A:" : "";
+    this.image_caption_1[1] = this.group_choice < this.image_exp_max ? "Image B:" : "";
+    this.image_caption_1[2] = this.group_choice < this.image_exp_max ? "Image C:" : "";
+    this.image_caption_1[3] = this.group_choice < this.image_exp_max ? "Image D:" : "";
       
     
     this.which_one_is_special_prep_id = this.which_one_is_special_prep_id_prop;
@@ -638,7 +647,7 @@ export default defineComponent({
         "which shows an even number of circles",
         "which does not contain the letter 'e'",
         "which contains a number",
-        "which is labeled with a 'B'",
+        "labeled with a 'B'",
         "which contains a a name for a mammal",
         "which contains a name of a bird",
         "which contains an English language word",
@@ -688,7 +697,7 @@ export default defineComponent({
   methods: {
     setImageOverlaySelected: function (index) {
       console.log('setting image overlay');
-      if (this.group_choice < 12) {
+      if (this.group_choice < this.image_exp_max) {
         this.image_overlay_selected[index] = 1;
       } else {
         this.image_overlay_selected[index] = "";
@@ -696,7 +705,7 @@ export default defineComponent({
     },
     clearImageOverlaySelected: function (index) {
       console.log('clearing Image Overlay');
-      if (this.group_choice < 12) {
+      if (this.group_choice < this.image_exp_max) {
         this.image_overlay_selected[index] = 0;
       } else {
         this.image_overlay_selected[index] = "";
@@ -716,7 +725,7 @@ export default defineComponent({
       this.computeSubmitDisabled();
     },
      clearSelectedFigCaption: function (index) {
-      if (this.group_choice < 12) {
+      if (this.group_choice < this.image_exp_max) {
         if (this.image_caption_1[index].includes("&#x2611;")) {
           if (index == 0) {
             this.image_caption_1[index] = "<b>Image A:</b>";
@@ -748,16 +757,16 @@ export default defineComponent({
       if (!this.image_caption_1[index].includes("Correct")) {
         this.image_caption_1[index] =
           this.image_caption_1[index] +
-          "<br/><span style='color:blue;font-size:20px;'>&#x2611;</span><span style='font-size:10px;text-align:left;'><b>Selected</b></span><span style='color:green;font-size:14px;'>&#x2611;</span>" +
-          "<span style='font-size:10px;text-align:left;'><b>Correct</b></span>";
+          "<br/><span style='color:green;font-size:14px;'>&#x2611;</span>" +
+          "<span style='font-size:10px;text-align:left;'><b>Selected and Correct</b></span>";
       }
     },
     setNotSelectedCorrectFigCaption: function (index) {
       if (!this.image_caption_1[index].includes("&#x2610;")) {
         this.image_caption_1[index] =
           this.image_caption_1[index] +
-          "<br/><span style='color:blue;font-size:20px;'>&#x2610;</span><span style = 'font-size:10px;text-align:left;'><b>Not Selected</b></span> <span style='color:green;font-size:20px;'>&#x2611;</span>" +
-          "<span style='font-size:10px;text-align:left;'><b>Correct</b></span>";
+          "<br/><span style='color:green;font-size:20px;'>&#x2611;</span>" +
+          "<span style='font-size:10px;text-align:left;'><b>Not Selected and Correct</b></span>";
       }
     },
     setSelectedIncorrectFigCaption: function (index) {
@@ -765,8 +774,8 @@ export default defineComponent({
         // red x
         this.image_caption_1[index] =
           this.image_caption_1[index] +
-          "<br/><span style='color:blue;font-size:20px;'>&#x2611;</span><span style='font-size:10px;text-align:left;'><b>Selected</b></span><span style='color:red;font-size:20px;'>&#x2612;</span>" +
-          "<span style='font-size:10px;text-align:left;'><b>Incorrect</b></span>";
+          "<br/><span style='color:red;font-size:20px;'>&#x2612;</span>" +
+          "<span style='font-size:10px;text-align:left;'><b>Selected and Incorrect</b></span>";
       }
     },
     setNotSelectedIncorrectFigCaption: function (index) {
@@ -774,8 +783,8 @@ export default defineComponent({
         // red x
         this.image_caption_1[index] =
           this.image_caption_1[index] +
-          "<br/><span style='color:blue;font-size:20px;'>&#x2610;</span><span style='font-size:10px;text-align:left;'>Not Selected</span><span style='color:red;font-size:20px;'>&#x2612;</span>" +
-          "<span style='font-size:10px;text-align:left;'>Incorrect</span>";
+          "<br/><span style='color:red;font-size:20px;'>&#x2612;</span>" +
+          "<span style='font-size:10px;text-align:left;'>Not Selected and Incorrect</span>";
       }
     },
     setNonSelectedFigCaption: function (index) {
@@ -1120,25 +1129,25 @@ export default defineComponent({
             //console.log('i:j ' + i + ':' + j);
             if (originalAnswerArray[j].value == scrambledImageArray[i]) {
               if (i == 0) {
-                if (g_choice < 12) {
+                if (g_choice < this.image_exp_max) {
                   val = "A";
                 } else {
                   val = originalAnswerArray[j].image;
                 }
               } else if (i == 1) {
-                if (g_choice < 12) {
+                if (g_choice < this.image_exp_max) {
                   val = "B";
                 } else {
                   val = originalAnswerArray[j].image;
                 }
               } else if (i == 2) {
-                if (g_choice < 12) {
+                if (g_choice < this.image_exp_max) {
                   val = "C";
                 } else {
                   val = originalAnswerArray[j].image;
                 }
               } else if (i == 3) {
-                if (g_choice < 12) {
+                if (g_choice < this.image_exp_max) {
                   val = "D";
                 } else {
                   val = originalAnswerArray[j].image;
@@ -1186,7 +1195,7 @@ export default defineComponent({
       // submit button
       console.log("RECORDING WOIS");
       // set the values based upon what is selected
-      if (this.group_choice < 12) {
+      if (this.group_choice < this.image_exp_max) {
         this.wois_selected = this.image_overlay_selected;
       }
       console.log('group_choice ' + this.group_choice);
@@ -1207,7 +1216,7 @@ export default defineComponent({
               this.wois_data[this.group_choice].first_question_second_answer;
           }
           var answer_is_correct = null;
-          if (this.group_choice < 12) {
+          if (this.group_choice < this.image_exp_max) {
             answer_is_correct = this.isImageAnswerCorrect(
               c_answer,
               this.wois_selected
@@ -1266,7 +1275,7 @@ export default defineComponent({
           for (let i = 0; i < fqsa.length; i++) {
             fqsa_i.push(fqsa[i].image);
           }
-          if (this.group_choice < 12) {
+          if (this.group_choice < this.image_exp_max) {
             fqsa_i.sort();
           }
           let st_arr = [];
@@ -1304,7 +1313,7 @@ export default defineComponent({
             if (!answer_is_correct) {
               qfm = "Not Quite. " + qfm;
             }
-            if (this.group_choice < 12) {
+            if (this.group_choice < this.image_exp_max) {
               qfm = "The correct answer is <b>Image " + fqsa_i[0] + "</b>";
             } else {
               qfm =
@@ -1315,7 +1324,7 @@ export default defineComponent({
                 ")</b>";
             }
             for (let i = 1; i < fqsa.length; i++) {
-              if (this.group_choice < 12) {
+              if (this.group_choice < this.image_exp_max) {
                 qfm = qfm + " and <b>Image " + fqsa_i[i] + "</b>";
               } else {
                 qfm =
@@ -1329,7 +1338,7 @@ export default defineComponent({
             }
           }
           qfm = qfm + "."
-          if (this.group_choice < 12) {
+          if (this.group_choice < this.image_exp_max) {
             qfm =
               qfm +
               " The image(s) contain <b>" +
@@ -1363,7 +1372,7 @@ export default defineComponent({
             }
             this.feedback_counter++;
             this.answer_data.push(new_data);
-            if (this.group_choice < 12) {
+            if (this.group_choice < this.image_exp_max) {
               this.second_question_text =
                 "<b>True</b> or <b>False</b>: the highlighted image (<b>Image A</b>) is the only one <b>" +
                 this.wois_feature[this.group_choice] +
@@ -1383,7 +1392,7 @@ export default defineComponent({
               this.submit_disabled = true;
              // this.show_feedback_modal = true;
               this.submit_disabled = true;
-              if (this.group_choice < 12) {
+              if (this.group_choice < this.image_exp_max) {
                 this.question_feedback_message =
                   this.wois_options[this.wois_selected[0]].feedback_0;
                 //console.log('image feedback ' + this.wois_options[this.wois_selected[0]].feedback_0);
@@ -1423,7 +1432,7 @@ export default defineComponent({
               this.correctProp = false; // resetting correctProp
               this.answer_incorrect = false;
 
-              if (this.group_choice < 12) {
+              if (this.group_choice < this.image_exp_max) {
                 this.second_question_text =
                   "<b>True</b> or <b>False</b>: the highlighted image (<b>Image A</b>) is the only one <b>" +
                   this.wois_feature[this.group_choice] +
@@ -1455,7 +1464,7 @@ export default defineComponent({
           // correct answer
           this.show_feedback_modal = true;
           let prp = "Image";
-          if (this.group_choice < 12) {
+          if (this.group_choice < this.image_exp_max) {
             prp = "Image";
           } else {
             prp = "Statement";
@@ -1485,7 +1494,7 @@ export default defineComponent({
           console.log("input answer before sort " + inputAnswer); // need to convert this to correct form.
       //get the data from wois_options
       let ans = "";
-      if (this.group_choice < 12) {
+      if (this.group_choice < this.image_exp_max) {
         ans = this.translateImageAnswer(inputAnswer);
       } else {
         ans = this.translateTextAnswer(inputAnswer); // need new translate code
@@ -1504,7 +1513,7 @@ export default defineComponent({
           this.show_length_short_feedback = false;
         }
         if (arr.length !== ans.length) return false;
-        if (this.group_choice < 12) {
+        if (this.group_choice < this.image_exp_max) {
           arr.sort();
         }
         console.log('arr after sort ' + arr);
@@ -1525,7 +1534,7 @@ export default defineComponent({
       console.log('translateTextAnswer ans ' + JSON.stringify(ans));
       console.log('input correct answer ' + JSON.stringify(correctAnswer)); 
       let arr = [];
-      if (this.group_choice < 12) {
+      if (this.group_choice < this.image_exp_max) {
         for (let i = 0; i < correctAnswer.length; i++) {
           arr.push(correctAnswer[i].image);
         }
@@ -1552,14 +1561,13 @@ export default defineComponent({
           return false;
         } 
         // only sort on images not statement.
-        if (this.group_choice < 12) {
+        if (this.group_choice < this.image_exp_max) {
           console.log('sorting the answer ');
           arr.sort();
         }
         // need to correct of order of answers.
-        if (this.group_choice < 12) {
+        if (this.group_choice < this.image_exp_max) {
           for (var i = 0; i < arr.length; i++) {
-            console.log('group choice < 12 returning false');
             if (arr[i] !== ans[i].value)
               return false;
           }
@@ -1587,7 +1595,7 @@ export default defineComponent({
       //console.log("correctAnswer " + JSON.stringify(correctAnswer));
       //console.log("inputAnswer " + inputAnswer);
       let ans = "";
-      if (this.group_choice < 12) {
+      if (this.group_choice < this.image_exp_max) {
         ans = this.translateImageAnswer(inputAnswer);
       } else {
         ans = this.translateTextAnswer(inputAnswer); // need new translation
@@ -1607,7 +1615,7 @@ export default defineComponent({
         ans_value.push(ans[i].value);
       }
       if (this.first_question) {
-        if (this.group_choice < 12) {
+        if (this.group_choice < this.image_exp_max) {
           arr.sort();
         }
         const found = arr.some((r) => ans_value.indexOf(r) >= 0);
@@ -1654,7 +1662,7 @@ export default defineComponent({
     whichAnswerIsCorrect: function (correctAnswer, inputAnswer) {
       let correctAnsArray = [-1, -1, -1, -1]; //  -2 unselected incorrect -1 unselected correct, 0 selected incorrect, 1 selected correct
       let ans = "";
-      if (this.group_choice < 12) {
+      if (this.group_choice < this.image_exp_max) {
         ans = this.translateImageAnswer(inputAnswer); // e.g. [4,5,6]
       } else {
         ans = this.translateTextAnswer(inputAnswer); // need new translate answer
@@ -1675,7 +1683,7 @@ export default defineComponent({
         ansArr.push(ans[i].value);
         image_ans_arr.push(ans[i].image);
       }
-      if (this.group_choice < 12) {
+      if (this.group_choice < this.image_exp_max) {
         arr.sort();
       }
       console.log('arr is ' + arr);
@@ -1748,7 +1756,7 @@ export default defineComponent({
       // if the answer is correct highlight image 0
       //   console.log("Computing Highlights");
       this.image_caption_0 = "";
-      if (this.group_choice < 12) {
+      if (this.group_choice < this.image_exp_max) {
         this.image_overlay_selected = [0, 0, 0, 0]; // reset the selections on the 2nd attempt
         this.image_caption_1 = [
           "<b>Image A:</b>",
@@ -1784,7 +1792,7 @@ export default defineComponent({
       console.log("continue mode " + this.continue_mode);
       console.log("select_mode_1 " + this.select_mdoe_1);
       this.wois_selected = []; // erase answer
-      if (this.group_choice < 12) {
+      if (this.group_choice < this.image_exp_max) {
         this.image_overlay_selected = [0, 0, 0, 0]; // reset the selections on the 2nd attempt
         this.image_caption_1 = [
           "<b>Image A:</b>",
@@ -1843,7 +1851,7 @@ export default defineComponent({
       // clear out the image captions
       if (this.first_question) {
         //console.log("Inside first question loop");
-        if (this.group_choice < 12) {
+        if (this.group_choice < this.image_exp_max) {
           this.image_caption_0 = "";
           this.image_caption_1 = [
             "<b>Image A:</b>",
@@ -1921,7 +1929,7 @@ export default defineComponent({
           console.log('first_question ' + this.first_question);
           console.log('wois_feature: ' + this.wois_feature[this.group_choice])
 
-          if (this.group_choice < 12) {
+          if (this.group_choice < this.image_exp_max) {
             this.image_overlay_selected = [0, 0, 0, 0]; // reset the selections on the 2nd attempt
             this.image_caption_1 = [
               "<b>Image A:</b>",
@@ -1949,7 +1957,7 @@ export default defineComponent({
           };
 
           // done all of the problems.
-          console.log('emiting event');
+          console.log('emiting event')
           this.$emit("save-data", this.problem_data);
           // go to the Survey page page
           this.$router.push("/Survey");
@@ -1990,7 +1998,7 @@ export default defineComponent({
         }
 
         // set the caption on the image(s) which are correct using the check mark etc.
-        if (this.feedback_counter == 2 && this.group_choice < 12) {
+        if (this.feedback_counter == 2 && this.group_choice < this.image_exp_max) {
           this.image_overlay_computed[0] = "image-overlay-highlight";
           this.image_overlay_computed[1] = "image-overlay";
           this.image_overlay_computed[2] = "image-overlay-second-row-second-question";
@@ -2087,7 +2095,7 @@ export default defineComponent({
         } else if (
           !this.answer_incorrect &&
           this.feedback_counter >= 1 &&
-          this.group_choice < 12
+          this.group_choice < this.image_exp_max
         ) {
           this.image_overlay_computed[0] = "image-overlay-highlight";
           this.image_overlay_computed[1] = "image-overlay";
@@ -2216,7 +2224,7 @@ export default defineComponent({
         for (let i = 0; i < fqsa.length; i++) {
           fqsa_i.push(fqsa[i].image);
         }
-        if (this.group_choice < 12) {
+        if (this.group_choice < this.image_exp_max) {
           fqsa_i.sort();
         }
         let st_arr = [];
@@ -2760,5 +2768,10 @@ td {
 }
 .select_cursor {
   cursor:pointer;
+}
+.dialog-left {
+  margin-top:50% !important;
+  margin-right:2%
+  
 }
 </style>

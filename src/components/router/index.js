@@ -23,10 +23,22 @@ export default createRouter({
       {
         base: import.meta.env.BASE_URL,
         path: "/WhichOneIsSpecialPrep_1",
-        name: "WhichOneIsSpecialPrep",
+        name: "WhichOneIsSpecialPrep_Enlearn",
         component: WhichOneIsSpecialPrep,
-        props: { which_one_is_special_prep_id_prop: 1 },
+        props: {
+          which_one_is_special_prep_id_prop: 1,
+          penn_exp_prop: false},
     },
+        {
+        base: import.meta.env.BASE_URL,
+        path: "/WhichOneIsSpecialPrep_2",
+        name: "WhichOneIsSpecialPrep_Penn",
+        component: WhichOneIsSpecialPrep,
+        props: {
+          which_one_is_special_prep_id_prop: 1,
+          penn_exp_prop: true
+          },
+        },
     {
         path: "/ThankYou",
         name: "ThankYou",

@@ -10,10 +10,9 @@ import { v4 as uuidv4 } from "uuid";
 
 //import AWS from "aws-sdk";
 import { PutObjectCommand, S3Client,S3 } from "@aws-sdk/client-s3";
-//import "@aws-sdk/credential-provider-cognito-identity";
-//import "@aws-sdk/client-cognito-identity";
+
 import { fromCognitoIdentityPool  } from "@aws-sdk/credential-providers"; // ES6 import
-import { CognitoIdentityClient } from '@aws-sdk/client-cognito-identity';
+//import { CognitoIdentityClient } from '@aws-sdk/client-cognito-identity';
 
 export default {
   name: 'App',

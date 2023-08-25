@@ -249,7 +249,7 @@ export default defineComponent({
             this.survey_data = new_state;
             console.log("survey data " + JSON.stringify(this.survey_data));
             this.$emit("saveData", this.survey_data);
-            this.$router.push("/ThankYou");
+            this.$router.push("/ThankYou_1");
         },
     },
 });

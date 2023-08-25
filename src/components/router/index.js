@@ -35,16 +35,30 @@ export default createRouter({
         name: "WhichOneIsSpecialPrep_Penn",
         component: WhichOneIsSpecialPrep,
         props: {
-          which_one_is_special_prep_id_prop: 1,
+          which_one_is_special_prep_id_prop: 2,
           penn_exp_prop: true
           },
         },
     {
-        path: "/ThankYou",
-        name: "ThankYou",
+        base: import.meta.env.BASE_URL,
+        path: "/ThankYou_2",
+        name: "ThankYou_2",
         component: ThankYou,
+        props: {
+          which_one_is_special_prep_id_prop: 2
+        }
     },
     {
+      base: import.meta.env.BASE_URL,
+      path: "/ThankYou_1",
+      name: "ThankYou_1",
+      component: ThankYou,
+      props: {
+          which_one_is_special_prep_id_prop: 1
+        }
+    },
+    {
+        base: import.meta.env.BASE_URL,
         path: "/Survey",
         name: "SurveyQuestions",
         component: SurveyQuestions,

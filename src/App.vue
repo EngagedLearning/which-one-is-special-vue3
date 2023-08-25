@@ -32,6 +32,7 @@ export default {
     this.sessionStorage = window.sessionStorage; 
     this.sessionStorage.setItem('user_id', uuidv4());
     this.sessionStorage.setItem('session-id', uuidv4()); // store another one as a session-id
+    this.sessionStorage.setItem('start-time', Date.now());
   // this.$session.start();
   //  this.$session.set("user_id", uuidv4());
   },

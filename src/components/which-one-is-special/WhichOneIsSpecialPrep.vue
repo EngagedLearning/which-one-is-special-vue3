@@ -827,14 +827,22 @@ export default defineComponent({
       }
     },
     computeSubmitDisabled: function () {
-      let sum = this.image_overlay_selected.reduce(
-        (partialSum, a) => partialSum + a,
-        0
-      );
-      if (sum > 0) {
-        this.submit_disabled = false;
-      } else {
-        this.submit_disabled = true;
+      console.log('computing sumbit disabled')
+      if (this.first_question) {
+        let sum = this.image_overlay_selected.reduce(
+          (partialSum, a) => partialSum + a,
+          0
+        );
+        if (sum > 0) {
+          this.submit_disabled = false;
+        } else {
+          this.submit_disabled = true;
+        }
+      } else if (this.second_question) {
+        if (this.second_question == -1) {
+          this.submit_disabled = true;
+        } else {
+          this.submit_disabled = false;          }
       }
     },
     selectImage: function (event) {
@@ -1603,6 +1611,7 @@ export default defineComponent({
           this.second_question_answer == 1) {
           second_answer_incorrect_f_t = true;
         }
+        this.computeSubmitDisabled(); 
         var second_answer_is_correct =
           !second_answer_incorrect_t_f && !second_answer_incorrect_f_t
         this.second_answer_correct = second_answer_is_correct;
@@ -1734,18 +1743,21 @@ export default defineComponent({
         console.log('arr is ' + JSON.stringify(arr));
         console.log('ans is ' + JSON.stringify(ans));
         if ((this.group_choice < this.image_exp_max)) {
+          console.log('images less than 12')
           for (var i = 0; i < arr.length; i++) {
             if (arr[i] !== ans[i].value)
               return false;
           }
         } else if ((this.group_choice >= this.image_exp_max && this.penn_exp_prop)) {
+          console.log('penn experiment')
           for (var i = 0; i < arr.length; i++) {
             if (arr[i] !== ans[i].image)
               return false;
           }
         } else {
-          for (var i = 0; i < arr.length; i++) {
-            if ((arr[i].image != ans[i].image) && (arr[i].value != ans[i].value)) {
+          for (var i = 0; i < arr.length; i++) { // need complete match for statements. 
+            console.log('comparing arr and ans. else 1750')
+            if ((arr[i].image != ans[i].image) || (arr[i].value != ans[i].value)) {
               console.log('returning false match i value ' + i);
               return false;
             }
@@ -2239,6 +2251,7 @@ export default defineComponent({
       ) {
         console.log('setting second question to true'); 
         this.second_question = true;
+        this.computeSubmitDisabled(); 
         this.first_question = false;
         this.woisDisabled = true; // disable the checkboxes on the second question.
         // need to set them to the correct answer  Answer is 'first_question_second_answer'

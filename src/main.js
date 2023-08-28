@@ -5,7 +5,8 @@ import App from './App.vue';
 import router from './components/router';
 import DemographicsQuestionaire from './components/demographics/DemographicsQuestionaire.vue'; 
 import WhichOneIsSpecialPrep from './components/which-one-is-special/WhichOneIsSpecialPrep.vue';
-import SurveyQuestions from './components/survey/SurveyQuestions.vue'
+import SurveyQuestions from './components/survey/SurveyQuestions.vue';
+import S3DataDownload from './components/download-data/S3DataDownload.vue'
 
 
 //import 'bootstrap/dist/css/bootstrap.min.css';
@@ -15,7 +16,8 @@ app.use(ElementPlus)
 app.use(router);
 app.component('WhichOneIsSpeicalPrep', WhichOneIsSpecialPrep)
     .component('DemographicsQuestionaire', DemographicsQuestionaire)
-    .component('SurveyQuestions',SurveyQuestions);
+    .component('SurveyQuestions', SurveyQuestions)
+    .component('S3DataDownload'.S3DataDownload);
 app.mount('#app');
 
  

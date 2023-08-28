@@ -1,8 +1,9 @@
 import { createRouter,createWebHashHistory } from "vue-router";
-import DemographicQuestionaire from '@/components/demographics/DemographicsQuestionaire.vue'
+import DemographicQuestionaire from '@/components/demographics/DemographicsQuestionaire.vue';
 import WhichOneIsSpecialPrep from '@/components/which-one-is-special/WhichOneIsSpecialPrep.vue';
-import SurveyQuestions from '@/components/survey/SurveyQuestions.vue'
-import ThankYou from '@/components/thankyou/ThankYou.vue'
+import SurveyQuestions from '@/components/survey/SurveyQuestions.vue';
+import ThankYou from '@/components/thankyou/ThankYou.vue';
+import S3DataDownload from '@/components/download-data/S3DataDownload.vue';
 
 export default createRouter({
   history:createWebHashHistory(),
@@ -62,6 +63,12 @@ export default createRouter({
         path: "/Survey",
         name: "SurveyQuestions",
         component: SurveyQuestions,
+    },
+    {
+        base: import.meta.env.BASE_URL,
+        path: "/S3DataDownload",
+        name: "S3DataDownload",
+        component: S3DataDownload,
     },
 ],
 });

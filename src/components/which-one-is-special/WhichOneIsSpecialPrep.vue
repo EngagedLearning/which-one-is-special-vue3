@@ -515,7 +515,7 @@ export default defineComponent({
         "Your answer chose too many of the images as having the correct property.  Be sure to choose only those images with the indicated property.",
       new_data: {
         student_id: "",
-        type: "which_one_is_special_prep_0",
+        type: "which_one_is_special_prep_2",
         group_id: -1,
         selection_array: [],
         correct_ans: -1,
@@ -530,9 +530,6 @@ export default defineComponent({
   },
   computed: {
     question_type: function () {
-      console.log('getting question_type computed 533');
-      console.log('group_choice ' + this.group_choice);
-      console.log('wois_data ' + JSON.stringify(this.wois_data[this.group_choice]))
       return (this.wois_data[this.group_choice].type_data);
     },
     image_deck: function () {
@@ -541,18 +538,17 @@ export default defineComponent({
       return (this.image_data.slice(start, end));
     },
     wois_computed: function () {
-      // console.log('wois options computed ' + this.wois_options);
       let start = this.group_choice * 4;
       let end = start + 4;
       return this.wois_options.slice(start, end);
     },
     image_0_computed: {
       get() {
-        console.log('calculating image_0_computed')
+        //console.log('calculating image_0_computed')
         let start = this.group_choice * 4;
-        console.log('start is ' + start)
+        //console.log('start is ' + start)
         let image = this.image_data[start].image_name;
-        console.log('image name is ' + image);
+        //console.log('image name is ' + image);
         return (image);
       },
       set(inputValue) {
@@ -688,9 +684,9 @@ export default defineComponent({
     this.second_question_answer = -1;
     this.second_question = false;
     this.second_question_disabled = false;
-    console.log("props " + this.which_one_is_special_prep_id_prop + ':' + this.penn_exp_prop);
+   /* console.log("props " + this.which_one_is_special_prep_id_prop + ':' + this.penn_exp_prop);
     console.log('group_choice ' + this.group_choice);
-    console.log('question_type ' + this.question_type);
+    console.log('question_type ' + this.question_type);*/
   },
 
   methods: {
@@ -892,7 +888,6 @@ export default defineComponent({
                 // toggle the answer
                 console.log('i == index ');
                 if (index == 0) {  // index 0 is special because of the highlight. 
-                  console.log('resetting index = 0 ')
                   if (this.image_overlay_selected[i] == 1) {
                     image_overlay_c[i] = this.setImageOverlay(i)
                     return_value = 1
@@ -994,7 +989,6 @@ export default defineComponent({
       return return_value; 
     },
     setInputAnswerArray: function () {
-    console.log("setInputAnswerArray")
       this.image_symbols = [
         this.question_mark,
         this.question_mark,
@@ -1260,7 +1254,6 @@ export default defineComponent({
           this.computed_image_array[1] = this.image_1_computed;
           this.computed_image_array[2] = this.image_2_computed;
           this.computed_image_array[3] = this.image_3_computed;
-          console.log('computed_image_array ' + this.computed_image_array);
           for (let i = 0; i < this.computed_image_array.length; i++) {
             for (let j = 0; j < fqsa_i.length; j++) {
               if (this.group_choice == 14) {
@@ -1450,7 +1443,6 @@ export default defineComponent({
                   this.wois_feature[this.group_choice] +
                   "</b>";
               } else {
-              http://localhost:3000/which-one-is-special-vue3/#/WhichOneIsSpecialPrep_1
                 this.second_question_text =
                   "<b>True</b> or <b>False</b>: <b>Statement A</b> in the <b> Correct Answer</b> is the only statement <b>" +
                   this.wois_feature[this.group_choice] +
@@ -1520,9 +1512,6 @@ export default defineComponent({
     },
     isImageAnswerCorrect: function (correctAnswer, inputAnswer) {
       // arrays are the same type
-      console.log('isImageAnswerCorrect ')
-          console.log("correct_answer before sort" + JSON.stringify(correctAnswer));
-          console.log("input answer before sort " + inputAnswer); // need to convert this to correct form.
       //get the data from wois_options
       let ans = "";
       if ((this.group_choice < this.image_exp_max)) {
@@ -1609,20 +1598,18 @@ export default defineComponent({
         console.log('arr is ' + JSON.stringify(arr));
         console.log('ans is ' + JSON.stringify(ans));
         if ((this.group_choice < this.image_exp_max)) {
-          console.log('images less than 12')
           for (var i = 0; i < arr.length; i++) {
             if (arr[i] !== ans[i].value)
               return false;
           }
         } else if ((this.group_choice >= this.image_exp_max && this.penn_exp_prop)) {
-          console.log('penn experiment')
           for (var i = 0; i < arr.length; i++) {
             if (arr[i] !== ans[i].image)
               return false;
           }
         } else {
           for (var i = 0; i < arr.length; i++) { // need complete match for statements. 
-            console.log('comparing arr and ans. else 1750')
+            console.log('comparing arr and ans. else 1614')
             if ((arr[i].image != ans[i].image) || (arr[i].value != ans[i].value)) {
               console.log('returning false match i value ' + i);
               return false;
@@ -1637,7 +1624,7 @@ export default defineComponent({
 
         return true;
       }
-      console.log('No return paths found; Returning true');
+      console.log('No return paths found; Returning true as default.');
       return true;
     },
     isAnyAnswerCorrect: function (correctAnswer, inputAnswer) {
@@ -1781,7 +1768,6 @@ export default defineComponent({
           console.log('i and j ' + i + ':' + j);
           if (arr[j] === ansArr[i]) {
             // its selected and correct
-            //console.log("match");
             // make sure using image tags.
             if (image_arr[j] == image_ans_arr[i]) {
               console.log("exact match");
@@ -1813,7 +1799,6 @@ export default defineComponent({
           } else if (ansArr[i] == start + 3) {
             correctAnsArray[(start + 3) % 4] = 0;
           }
-          //      console.log("correctAnswerArray false match " + correctAnsArray);
         }
       }
       // now get the unselected answers and compare them to the correct answers

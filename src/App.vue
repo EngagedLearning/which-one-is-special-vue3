@@ -7,12 +7,8 @@
 
 <script>
 import { v4 as uuidv4 } from "uuid";
-
-//import AWS from "aws-sdk";
 import { PutObjectCommand, S3Client,S3 } from "@aws-sdk/client-s3";
-
 import { fromCognitoIdentityPool  } from "@aws-sdk/credential-providers"; // ES6 import
-//import { CognitoIdentityClient } from '@aws-sdk/client-cognito-identity';
 
 export default {
   name: 'App',
@@ -28,34 +24,36 @@ export default {
       },
     };
   },
+  /*
+   Things to do before the page is populated. 
+   Create a UserID, a SessionId and a start-time for the session.
+  */
   beforeCreate: function () {
     this.sessionStorage = window.sessionStorage; 
     this.sessionStorage.setItem('user_id', uuidv4());
     this.sessionStorage.setItem('session-id', uuidv4()); // store another one as a session-id
     this.sessionStorage.setItem('start-time', Date.now());
-  // this.$session.start();
-  //  this.$session.set("user_id", uuidv4());
   },
   mounted() { },
   methods: {
+    /*
+      Write the data to AWS S3 using version 3 of the api.
+      Data includes both session and user ids along with a
+      json array of the data from the various pages including
+      the demographic page, the actual activity page and the survey page.
+    */
    writeToS3: function (problemData, type) {
       // create a file name from the problem data
       let sess = problemData["sessionData"]["session-id"];
       let user = problemData["sessionData"]["user_id"];
       let d = new Date(Date.now()).toISOString();
-      // change any colons to _ since it is just a file name
-      let d0 = d.replaceAll(':','_')
-      let pre_post_type = "none";
-
-      if (typeof problemData["problemData"][0] !== "undefined") {
-        pre_post_type = problemData["problemData"][0]["type"];
-      }
-
-      var fName = "";
-      // console.log("writeToS3 type " + type)
+      // change any colons in the date to _ since it is just a file name
+      let d0 = d.replaceAll(':', '_');
+      
+      var fName = "/data/which_one_is_special_"; // file name is based upon the type of data, the date and the user id
       if (type === "demographic") {
-        fName =
-          "/data/which_one_is_special_demographic_" +
+        fName = fName + 
+          "demographic_" +
           sess +
           "_user_" +
           user +
@@ -63,8 +61,8 @@ export default {
           d +
           ".json";
       } else if (type === "survey") {
-        fName =
-          "/data/which_one_is_special_survey_" +
+        fName = fName + 
+          "survey_" +
           sess +
           "_user_" +
           user +
@@ -73,8 +71,8 @@ export default {
           ".json";
       }  else {
         // undefined type
-        fName =
-          "/data/which_one_is_special_activity_" +
+        fName = fName + 
+          "activity_" +
           sess +
           "_user_" +
           user +
@@ -90,15 +88,8 @@ export default {
 
       var s3BucketName = "enlearn-efplus-math-which-one-is-special-results";   
      
-    /*  var s3 = new AWS.S3({
-        apiVersion: "2006-03-01",
-        params: { Bucket: s3BucketName },
-      });*/
-      // console.log("s3 " + JSON.stringify(s3))
       // try to write the data to the bucket
       var buf = Buffer.from(JSON.stringify(problemData));
-      console.log('buf is ' + (buf));
-      console.log('creating a command');
       var command = new PutObjectCommand({
         Bucket: s3BucketName,
         Key: fName,
@@ -109,6 +100,11 @@ export default {
       // send the command and wait for a reply
       this.sendCommand(command,fName); 
     },
+    /*
+      Method to send command to AWS S3 via the s3 client api. 
+      Inputs are the command and the key (in this case the filename)
+      for the S3 bucket. 
+    */
     async sendCommand(command,fName) {
       try {
         console.log('calling send command'); 
@@ -116,7 +112,7 @@ export default {
         var s3BucketName = "enlearn-efplus-math-which-one-is-special-results/";
         var bucketRegion = "us-west-2";
         var IdentityPoolId = "us-west-2:77d2e523-774d-4782-a18b-90c1158a0906";
-        // replaced by the code just below. 
+        // replaced by the code just below. version 2 vs. version 3 of the api. 
         /*  AWS.config.update({
            region: bucketRegion,
            credentials: new AWS.CognitoIdentityCredentials({
@@ -137,14 +133,11 @@ export default {
         console.error(err, err.stack);
       }
     },
-    postLogData: function (problemData, type) {
-      console.log("problemData: " + JSON.stringify(problemData));
-      console.log("postLogData type " + type);
-      this.writeToS3(problemData, type);
-    },
+    /* 
+      function that is emitted by the other pages in order to write the
+      data to AWS S3.
+    */
     saveData: function (problemData) {
-      console.log('calling SaveData');
-      console.log("problemData type flag " + problemData.type);
       this.savedData.problemData = problemData;
       this.savedData.sessionData = {}; // adding session data to the log.
       Object.keys(this.sessionStorage).forEach((key) => {
@@ -154,7 +147,7 @@ export default {
       console.log(JSON.stringify(this.savedData));
       console.log("type " + problemData.type);
       console.log("posting data to s3");
-      this.postLogData(this.savedData, problemData.type);
+      this.writeToS3(this.savedData, problemData.type);
     },
   },
 };

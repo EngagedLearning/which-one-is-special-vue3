@@ -16,7 +16,11 @@
 </template>
 
 <script>
-
+/* Thank You page.
+Thanks the user for their participation.
+For Mechanical Turk Users, it gives them the code to enter to get their stipened.
+For Pennasota users, it asks them to hit the 'q' key to end the experiment. 
+*/
 export default {
     name: "ThankYou",
     props: {
@@ -51,16 +55,8 @@ export default {
                 confirmation_code: sessionData["user_id"],
             },
         ];
-        //this.emitPageLoaded();
     },
     methods: {},
-    /*	emitPageLoaded: function() {
-              let logData = {
-                  eventName: "pageLoaded",
-                  pageName: this.pageName,,
-              this.$emit("callEvent", logData);
-          },
-      },*/
 };
 </script>
 

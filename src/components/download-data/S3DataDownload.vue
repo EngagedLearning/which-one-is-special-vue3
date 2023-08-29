@@ -6,7 +6,7 @@
         <el-col :span="2"></el-col>
         
         <el-col :span="8" :offset="2">
-            <el-text size="large">Last Modified Date: </el-text>
+            <el-text size="large" style="font-weight: bold;">Download Data From This Date Forward: </el-text>
             <el-date-picker
              v-model="last_modified_date"
              type="date"
@@ -20,6 +20,11 @@
         </el-col>
         <el-col :span="4" :offset="1">
             <el-button @click="listObjects" type="primary" style="margin-left:80%;">List Data Files</el-button>
+        </el-col>
+    </el-row>
+    <el-row>
+        <el-col :span="4" :offset="12">
+            <el-text><span style="font-weight:bold;font-size:16px;"> Total number of files: </span>{{ total_files }}</el-text>
         </el-col>
     </el-row>
     <br/>
@@ -45,7 +50,7 @@
     <el-row>
         
         <el-col :span = "4" :offset="2" style="margin-top:1%;">
-            <el-text style="font-stley:bold;">File Name:</el-text>
+            <el-text style="font-weight:bold;">File Name:</el-text>
         </el-col>
         <el-col :span = "8" :offset="0" style="margin-top:1%;">
            <el-input v-model = "saved_filename" placeholder="Please enter download filename (*.json)"></el-input>
@@ -59,7 +64,6 @@
 <script>
 
     import { GetObjectCommand, ListObjectsV2Command,S3Client, S3 } from "@aws-sdk/client-s3";
-
     import { fromCognitoIdentityPool } from "@aws-sdk/credential-providers"; // ES6 import
     
 export default {
@@ -83,7 +87,8 @@ export default {
             shortcuts: [],
             loading: false,
             download_disabled: true,
-            saved_filename:"",
+            saved_filename: "",
+            total_files:0,
         };
     },
     beforeCreate: function () { },
@@ -92,6 +97,7 @@ export default {
         this.disabledDate = (time) => {
             return time.getTime() > Date.now()
         };
+        this.total_files = 0; 
         this.loading = false;
         this.download_disabled = true;
         this.shortcuts = [
@@ -189,6 +195,7 @@ export default {
                 // console.log(JSON.stringify(contents));
                 this.loading = false;
                 this.s3_data = contents;
+                this.total_files = this.s3_data.length; 
                 if (this.s3_data.length > 0) {
                     this.download_disabled = false;
                 }

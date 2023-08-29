@@ -15,7 +15,7 @@
                         <el-form-item>
                             <el-input type = "textarea" id="activity_about_text" v-model="activity_text"
                             placeholder="In your own words, what do you think this activity ask you to do?" rows="3"
-                            max-rows="6" style="margin-bottom: 1em">
+                            max-rows="6" style="margin-bottom: 1em;">
                             </el-input>
                         </el-form-item>
                     </el-col>
@@ -25,7 +25,7 @@
                         <el-form-item>
                         <el-input type="textarea" id="variance_def_text" v-model="unique_text"
                             placeholder="In your own words, please give a definition for the term 'unique' as it was used in this activity?"
-                            rows="3" max-rows="6" style="margin-bottom: 1em">
+                            rows="3" max-rows="6" style="margin-bottom: 1em;">
                         </el-input>
                         </el-form-item>
                     </el-col>
@@ -41,27 +41,26 @@
                     <el-col :span="20" :offset="4">
                         <el-form-item class="statement" label="The directions were clear and easy to understand.">
                             <el-radio-group id="radio-group-2" v-model="instruction_rating"
-                                name="radio_instruction_rating" class="likert"
-                                style="padding: 1em; width: 100%; margin-right: 2em">
+                                name="radio_instruction_rating" class="likert">
                                 <el-row>
                                     <el-col :span="6">
-                                        <el-radio style="margin-right: 2em" :label="2">Strongly Agree
+                                        <el-radio class="likert-margin-style" :label="2">Strongly Agree
                                         </el-radio>
                                     </el-col>
                                     <el-col :span="4">
-                                        <el-radio style="margin-right: 2em" :label="1">Agree
+                                        <el-radio class="likert-margin-style" :label="1">Agree
                                         </el-radio>
                                     </el-col>
                                     <el-col :span="4">
-                                        <el-radio style="margin-right: 2em" :label="0">Neutral
+                                        <el-radio class="likert-margin-style" :label="0">Neutral
                                         </el-radio>
                                     </el-col>
                                     <el-col :span="4">
-                                        <el-radio style="margin-right: 2em" :label="-1">Disagree
+                                        <el-radio class="likert-margin-style" :label="-1">Disagree
                                         </el-radio>
                                     </el-col>
                                     <el-col :span="3">
-                                        <el-radio style="margin-right: 2em" :label="-2">Strongly Disagree
+                                        <el-radio class="likert-margin-style" :label="-2">Strongly Disagree
                                         </el-radio>
                                     </el-col>
                                 </el-row>
@@ -69,26 +68,26 @@
                         </el-form-item>
                         <el-form-item class="statement" label="The interface was intuitive and easy to use.">
                             <el-radio-group id="radio-group-3" v-model="interface_rating" name="radio_interface_rating"
-                                class="likert" style="padding: 1em; width: 100%; margin-right: 2em">
+                                class="likert">
                                 <el-row>
                                     <el-col :span="6">
-                                        <el-radio style="margin-right: 2em" :label="2">Strongly Agree
+                                        <el-radio class="likert-margin-style" :label="2">Strongly Agree
                                         </el-radio>
                                     </el-col>
                                     <el-col :span="4">
-                                        <el-radio style="margin-right: 2em" :label="1">Agree
+                                        <el-radio class="likert-margin-style" :label="1">Agree
                                         </el-radio>
                                     </el-col>
                                     <el-col :span="4">
-                                        <el-radio style="margin-right: 2em" :label="0">Neutral
+                                        <el-radio class="likert-margin-style" :label="0">Neutral
                                         </el-radio>
                                     </el-col>
                                     <el-col :span="4">
-                                        <el-radio style="margin-right: 2em" :label="-1">Disagree
+                                        <el-radio class="likert-margin-style" :label="-1">Disagree
                                         </el-radio>
                                     </el-col>
                                     <el-col :span="3">
-                                        <el-radio style="margin-right: 2em" :label="-2">Strongly Disagree
+                                        <el-radio class="likert-margin-style" :label="-2">Strongly Disagree
                                         </el-radio>
                                     </el-col>
                                 </el-row>
@@ -96,26 +95,26 @@
                         </el-form-item>
                         <el-form-item class="statement" label="The activity was difficult.">
                             <el-radio-group id="radio-group-4" v-model="activity_rating" name="radio_activity_rating"
-                                class="likert" style="padding: 1em; width: 100%; margin-right: 2em">
+                                class="likert">
                                 <el-row>
                                     <el-col :span="6">
-                                        <el-radio style="margin-right: 2em" :label="2">Strongly Agree
+                                        <el-radio class="likert-margin-style" :label="2">Strongly Agree
                                         </el-radio>
                                     </el-col>
                                     <el-col :span="4">
-                                        <el-radio style="margin-right: 2em" :label="1">Agree
+                                        <el-radio class="likert-margin-style" :label="1">Agree
                                         </el-radio>
                                     </el-col>
                                     <el-col :span="4">
-                                        <el-radio style="margin-right: 2em" :label="0">Neutral
+                                        <el-radio class="likert-margin-style" :label="0">Neutral
                                         </el-radio>
                                     </el-col>
                                     <el-col :span="4">
-                                        <el-radio style="margin-right: 2em" :label="-1">Disagree
+                                        <el-radio class="likert-margin-style" :label="-1">Disagree
                                         </el-radio>
                                     </el-col>
                                     <el-col :span="3">
-                                        <el-radio style="margin-right: 2em" :label="-2">Strongly Disagree
+                                        <el-radio class="likert-margin-style" :label="-2">Strongly Disagree
                                         </el-radio>
                                     </el-col>
                                 </el-row>
@@ -123,27 +122,26 @@
                         </el-form-item>
                         <el-form-item class="statement" label="I feel the words used in each question were easy to understand.">
                             <el-radio-group id="radio-group-5" v-model="understanding_rating"
-                                name="radio_understanding_rating" class="likert"
-                                style="padding: 1em; width: 100%; margin-right: 2em">
+                                name="radio_understanding_rating" class="likert">
                                 <el-row>
                                     <el-col :span="6">
-                                        <el-radio style="margin-right: 2em" :label="2">Strongly Agree
+                                        <el-radio class="likert-margin-style" :label="2">Strongly Agree
                                         </el-radio>
                                     </el-col>
                                     <el-col :span="4">
-                                        <el-radio style="margin-right: 2em" :label="1">Agree
+                                        <el-radio class="likert-margin-style" :label="1">Agree
                                         </el-radio>
                                     </el-col>
                                     <el-col :span="4">
-                                        <el-radio style="margin-right: 2em" :label="0">Neutral
+                                        <el-radio class="likert-margin-style" :label="0">Neutral
                                         </el-radio>
                                     </el-col>
                                     <el-col :span="4">
-                                        <el-radio style="margin-right: 2em" :label="-1">Disagree
+                                        <el-radio class="likert-margin-style" :label="-1">Disagree
                                         </el-radio>
                                     </el-col>
                                     <el-col :span="3">
-                                        <el-radio style="margin-right: 2em" :label="-2">Strongly Disagree
+                                        <el-radio class="likert-margin-style" :label="-2">Strongly Disagree
                                         </el-radio>
                                     </el-col>
                                 </el-row>
@@ -151,26 +149,26 @@
                         </el-form-item>
                         <el-form-item class="statement" label="I feel the feedback after each answer was helpful.">
                             <el-radio-group id="radio-group-7" v-model="feedback_rating" name="radio_feedback_rating"
-                                class="likert" style="padding: 1em; width: 100%; margin-right: 2em">
+                                class="likert">
                                 <el-row>
                                     <el-col :span="6">
-                                        <el-radio style="margin-right: 2em" :label="2">Strongly Agree
+                                        <el-radio class="likert-margin-style" :label="2">Strongly Agree
                                         </el-radio>
                                     </el-col>
                                     <el-col :span="4">
-                                        <el-radio style="margin-right: 2em" :label="1">Agree
+                                        <el-radio class="likert-margin-style" :label="1">Agree
                                         </el-radio>
                                     </el-col>
                                     <el-col :span="4">
-                                        <el-radio style="margin-right: 2em" :label="0">Neutral
+                                        <el-radio class="likert-margin-style" :label="0">Neutral
                                         </el-radio>
                                     </el-col>
                                     <el-col :span="4">
-                                        <el-radio style="margin-right: 2em" :label="-1">Disagree
+                                        <el-radio class="likert-margin-style" :label="-1">Disagree
                                         </el-radio>
                                     </el-col>
                                     <el-col :span="3">
-                                        <el-radio style="margin-right: 2em" :label="-2">Strongly Disagree
+                                        <el-radio class="likert-margin-style" :label="-2">Strongly Disagree
                                         </el-radio>
                                     </el-col>
                                 </el-row>
@@ -182,7 +180,7 @@
                     <el-col :span="20" :offset="4">
                         <el-input type="textarea" id="comment_text" v-model="comment_text"
                             placeholder="Do you have another comments/criticisms or wonderings on this activity?" rows="3"
-                            max-rows="6" style="margin-bottom: 1em">
+                            max-rows="6" style="margin-bottom: 1em;">
                         </el-input>
                     </el-col>
                 </el-row>
@@ -217,17 +215,31 @@ export default defineComponent({
         };
     },
     methods: {
+        /*
+        Reset the survey entries 
+        Entries are:
+        activity_text: purpose of activity (free form text)
+        comment_text: comments or criticisms of the activity (free form text)
+        unique_text: definition of unique (free-form text)
+        instruction_rating: Likert scale: on direction clarity
+        activity_rating: Likert scale: activity difficulty rating
+        interface_rating: Likert scale: ease of use of interface
+        understanding_rating: Likert scale: How easy was each question to understand
+        feedback_rating: Likert scale: How helpful was the feedback on each answer. 
+        */
         clearEntries: function () {
-            this.activity_text = "";
+            this.activity_text = "";  
             this.comment_text = "";
             this.unique_text = "";
             this.instruction_rating = -3;
             this.activity_rating = -3;
             this.interface_rating = -3;
             this.understanding_rating = -3;
-            this.strike_zone_rating = -3;
             this.feedback_rating = -3;
         },
+        /*
+            Submit the entries to the top level App.vue so they can be written to Amazon S3.
+        */
         submitEntries: function () {
             console.log("submitting entries");
             this.sessionStorage = window.sessionStorage;
@@ -240,7 +252,6 @@ export default defineComponent({
                 unique_text: this.unique_text,
                 instruction_rating: this.instruction_rating,
                 interface_rating: this.interface_rating,
-                strike_zone_rating: this.strike_zone_rating,
                 activity_rating: this.activity_rating,
                 understanding_rating: this.understanding_rating,
                 feedback_rating: this.feedback_rating,
@@ -269,6 +280,9 @@ h1.likert-header {
     padding-left: 4.25%;
     margin: 20px 0 20px 20px;
 }
+.likert-margin-style {
+    margin-right:2em; 
+}
 
 form .statement {
     display: block;
@@ -282,9 +296,10 @@ form .likert {
     list-style: none;
     width: 100%;
     margin: 0;
-    padding: 0 0 35px;
+    padding: 1em;
     display: block;
     border-bottom: 2px solid #efefef;
+    margin-right: 2em; 
 }
 
 form .likert:last-of-type {

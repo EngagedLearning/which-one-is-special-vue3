@@ -43,6 +43,7 @@
                   ></figcaption>
                   <img v-if="group_choice < this.image_exp_max"
                     :src="getImageUrl(this.image_0_computed)"
+                    alt = "image_0_computed"
                     class="image-center"
                     style = "margin-top:1%;margin-left:25%;"
                  
@@ -78,6 +79,7 @@
                   ></figcaption>
                   <img v-if = "group_choice < this.image_exp_max"
                     :src="getImageUrl(this.image_1_computed)"
+                    alt = "image_1_computed"
                     class="image-center"
                     style = "margin-top:1%;margin-left:25%;"
                   />
@@ -379,6 +381,7 @@
                   ></figcaption>
                   <img v-if="group_choice < this.image_exp_max"
                       :src="getImageUrl(this.image_2_computed)" 
+                      alt = "image_2_computed"
                       class="image-center"
                       style = "margin-top:1%;margin-left:25%;"
                   />
@@ -411,6 +414,7 @@
                     </figcaption>
                     <img v-if="group_choice < this.image_exp_max"
                       :src="getImageUrl(this.image_3_computed)"
+                      alt = "image_3_computed"
                       class="image-center"
                       style = "margin-top:1%;margin-left:25%;" 
                     />
@@ -449,6 +453,9 @@ import 'element-plus/dist/index.css'
 
 export default defineComponent({
   name: "WhichOneIsSpecialPrep",
+  emits: {
+    saveData:null
+  },
   props: {
     which_one_is_special_prep_id_prop: {
       type: Number,
@@ -2951,14 +2958,6 @@ td {
   opacity: 0.7;
   border: 10px solid blue;
 }
-.image-overlay-correct {
-  width: 325px;
-  height: 225px;
-  position: absolute;
-  background-color: #43f440;
-  opacity: 0.2;
-  border: 10px solid blue;
-}
 .image-overlay-select {
   width: 325px;
   height: 225px;
@@ -2975,22 +2974,6 @@ td {
   opacity: 0.70;
   border: 10px solid blue;
   margin-top:11%;
-}
-.image-overlay-incorrect {
-  width: 325px;
-  height: 225px;
-  position: absolute;
-  background-color: #e42817;
-  opacity: 0.3;
-  border: 10px solid blue;
-}
-.image-overlay-non-select {
-  width: 325px;
-  height: 225px;
-  position: absolute;
-  background-color: #4848e6;
-  opacity: 0.3;
-  border: 10px solid blue;
 }
 .image-overlay {
   width: 325px;
@@ -3018,22 +3001,7 @@ td {
   border: 3px solid green;
   margin-top:5%;
 }
-.image-overlay-feedback {
-  width: 325px;
-  height: 225px;
-  position: absolute;
-  background-color: rgb(58, 66, 220);
-  opacity: 0.7;
-}
 
-.image-overlay-feedback-special {
-  width: 325px;
-  height: 225px;
-  position: absolute;
-  background-color: rgb(58, 66, 220);
-  opacity: 0.7;
-  border: 15px solid #f4cd40;
-}
 .image-center {
   display: block;
   margin-left: auto;

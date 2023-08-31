@@ -17,7 +17,7 @@ app.use(router);
 app.component('WhichOneIsSpeicalPrep', WhichOneIsSpecialPrep)
     .component('DemographicsQuestionaire', DemographicsQuestionaire)
     .component('SurveyQuestions', SurveyQuestions)
-    .component('S3DataDownload'.S3DataDownload);
+    .component('S3DataDownload',S3DataDownload);
 app.mount('#app');
 
  

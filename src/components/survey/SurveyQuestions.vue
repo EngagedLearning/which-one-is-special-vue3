@@ -199,6 +199,9 @@ import { defineComponent } from "vue";
 export default defineComponent({
     name: "SurveyQuestions",
     components: {},
+    emits: {
+        saveData:null,
+    },
     props: {},
     data: function () {
         return {

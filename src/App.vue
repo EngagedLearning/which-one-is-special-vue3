@@ -7,7 +7,7 @@
 
 <script>
 import { v4 as uuidv4 } from "uuid";
-import { PutObjectCommand, S3Client,S3 } from "@aws-sdk/client-s3";
+import { PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
 import { fromCognitoIdentityPool  } from "@aws-sdk/credential-providers"; // ES6 import
 
 export default {

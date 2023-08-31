@@ -63,13 +63,15 @@
 
 <script>
 
-    import { GetObjectCommand, ListObjectsV2Command,S3Client, S3 } from "@aws-sdk/client-s3";
+    import { GetObjectCommand, ListObjectsV2Command,S3Client} from "@aws-sdk/client-s3";
     import { fromCognitoIdentityPool } from "@aws-sdk/credential-providers"; // ES6 import
     
 export default {
     name: 's3-data-download',
     components: {},
-
+    emits: {
+        saveData:null,
+    },
     data: function () {
         return {
             s3_data_title: "Data Results Download",
@@ -257,27 +259,6 @@ export default {
                     }
                 }
             }
-       /* async sendCommand(command, fName) {
-            try {
-                console.log('calling send command');
-                console.log('Command is ' + (command));
-                var s3BucketName = "enlearn-efplus-math-which-one-is-special-results/";
-                var bucketRegion = "us-west-2";
-                var IdentityPoolId = "us-west-2:77d2e523-774d-4782-a18b-90c1158a0906";
-                    
-                var client_s3 = new S3Client({
-                    region: bucketRegion,
-                    credentials: fromCognitoIdentityPool({
-                        clientConfig: { region: bucketRegion },
-                        identityPoolId: IdentityPoolId,
-                    })
-                });
-                await client_s3.send(command)
-                console.log('Successfully uploaded data to ' + s3BucketName + '/' + fName);
-            } catch (err) {
-                console.error(err, err.stack);
-            }
-        },*/
     },
 };
 </script>

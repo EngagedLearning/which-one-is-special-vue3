@@ -120,6 +120,9 @@ import { defineComponent } from 'vue'
 
 export default defineComponent ({
     name: "DemographicQuestionnaire",
+    emits: {
+        saveData:null,
+    },
     props: {
         experiment_id_prop: {
             type: Number,

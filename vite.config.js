@@ -4,7 +4,6 @@ import vue from '@vitejs/plugin-vue'
 import { polyfillNode } from "esbuild-plugin-polyfill-node";
 import { NodeGlobalsPolyfillPlugin } from '@esbuild-plugins/node-globals-polyfill';
 import viteImagemin from 'vite-plugin-imagemin';
-: q
 import { compression } from 'vite-plugin-compression2';
 
 const path = require("path");

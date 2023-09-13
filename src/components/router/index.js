@@ -1,5 +1,5 @@
 import { createRouter,createWebHashHistory } from "vue-router";
-import DemographicQuestionaire from '@/components/demographics/DemographicsQuestionaire.vue';
+//import DemographicQuestionaire from '@/components/demographics/DemographicsQuestionaire.vue';
 import WhichOneIsSpecialPrep from '@/components/which-one-is-special/WhichOneIsSpecialPrep.vue';
 import SurveyQuestions from '@/components/survey/SurveyQuestions.vue';
 import ThankYou from '@/components/thankyou/ThankYou.vue';
@@ -8,13 +8,8 @@ import S3DataDownload from '@/components/download-data/S3DataDownload.vue';
 export default createRouter({
   history:createWebHashHistory(),
   routes: [
-  /*  {
-        path: "/WhichOneIsSpecialPrep_0",
-        name: "WhichOneIsSpecialPrep0",
-        component: WhichOneIsSpecialPrep,
-        props: { which_one_is_special_prep_id_prop: 0 },
-    },*/
-      {
+  
+  /*    {
         base: import.meta.env.BASE_URL,
         path: "/Demographics_21",
         name: "DemographicQuestionaire_21",
@@ -29,7 +24,7 @@ export default createRouter({
         props: {
           which_one_is_special_prep_id_prop: 1,
           penn_exp_prop: false},
-    },
+    },*/
         {
         base: import.meta.env.BASE_URL,
         path: "/WhichOneIsSpecialPrep_2",

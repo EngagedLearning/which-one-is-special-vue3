@@ -5,6 +5,12 @@ import { polyfillNode } from "esbuild-plugin-polyfill-node";
 import { NodeGlobalsPolyfillPlugin } from '@esbuild-plugins/node-globals-polyfill';
 import viteImagemin from 'vite-plugin-imagemin';
 import { compression } from 'vite-plugin-compression2';
+import circleDependency from 'vite-plugin-circular-dependency';
+
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import { PluginPure } from 'rollup-plugin-pure'
 
 const path = require("path");
 
@@ -20,7 +26,21 @@ export default defineConfig({
   plugins: [
     // Components({
     // }),
-    vue(),
+    PluginPure({
+      functions: ['defineComponent'],
+      include: [/(?<!im)pure\.js$/],
+      // exclude: [],
+      // sourcemap: true,
+    }),
+    AutoImport({
+      resolvers: [ElementPlusResolver()],
+    }),
+    Components({
+      resolvers: [ElementPlusResolver()],
+    }),
+    circleDependency({
+        outputFilePath: './circleDep'
+    }),
     polyfillNode(),
     NodeGlobalsPolyfillPlugin({
       buffer: true
@@ -53,7 +73,8 @@ export default defineConfig({
       },
     }),
     compression(),
-      
+    vue(), 
+   
   ],
     // added base to find the assets in the right place
     base:'/which-one-is-special-vue3/',

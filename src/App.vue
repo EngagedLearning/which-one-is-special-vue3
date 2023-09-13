@@ -1,6 +1,6 @@
 <template>
   <main>
-    <router-view @save-data="saveData"/>
+    <router-view :key="$route.path" @save-data="saveData"/>
   </main>
  
 </template>
@@ -9,6 +9,8 @@
 import { v4 as uuidv4 } from "uuid";
 import { PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
 import { fromCognitoIdentityPool  } from "@aws-sdk/credential-providers"; // ES6 import
+
+
 
 export default {
   name: 'App',

@@ -692,10 +692,10 @@ export default defineComponent({
       "that contains a basket",
       "the value of the money equal to 10 cents",
       "that having an odd number of coins",
-      "an image of an apple",
+      " contains an image of an apple",
       "all images which depict fruit",
-      "contains a basket",
-      "more than 10 circles",
+      " contains a basket",
+      " contains more than 10 circles",
       "all images of a square",
       "an even number of circles",
       "the statement which does NOT contain the letter 'e'",
@@ -1333,14 +1333,15 @@ export default defineComponent({
             if (!answer_is_correct) {
               qfm = "Not Quite. " + qfm;
             } else {
-              qfm = "Congratulations! " + qfm; 
+              qfm = "Congratulations! You are correct! " + qfm; 
             }
             console.log('qfm 1330 ' + qfm); 
             if ((this.group_choice < this.image_exp_max)) {
               if (fqsa_i.length == 1) {
-                qfm = qfm + "Only <b>Image " + fqsa_i[0] + "</b> contains the property above. ";
+                qfm = qfm + "Only <b>Image " + fqsa_i[0] + this.wois_unique_feature[this.group_choice] +
+              "</b>.";
               } else {
-                qfm = qfm + "<b>Image " + fqsa_i[0] + "</b>";
+                qfm = qfm + "<b>Image " + fqsa_i[0] + "</b>" ;
               }
             } else if (this.group_choice >= this.image_exp_max && !this.penn_exp_var) {
               qfm = qfm + 
@@ -1385,21 +1386,21 @@ export default defineComponent({
           console.log('qfm 1377 ' + qfm); 
           if ((this.group_choice < this.image_exp_max)) {
             qfm =
-              qfm + (fqsa_i.length > 1 ? " contain the property above. These selected images contain <b>" : "This image contains <b>") +
-              this.wois_unique_feature[this.group_choice] +
-              "</b>.";
+              qfm + (fqsa_i.length > 1 ? " contain <b>" + this.wois_unique_feature[this.group_choice] + "</b>." : "")  // +" contain These selected images contain <b>" : "This image contains <b>") +
+           //   this.wois_unique_feature[this.group_choice]
+           //   "</b>.";
           } else if (this.group_choice >= this.image_exp_max && !this.penn_exp_var){
             qfm =
-              qfm + (fqsa_i.length > 1 ? " contain the property above.  These statements contain <b>" : "This statement contains <b>") +
-              ". The statement(s) contain <b>" +
-              this.wois_unique_feature[this.group_choice] +
-              "</b>.";
+              qfm + (fqsa_i.length > 1 ? " contain <b>" + this.wois_unique_feature[this.group_choice] + "</b>." : " contains <b>"+ this.wois_unique_feature[this.group_choice] + "</b>.")// +
+           //  ". The statement(s) contain <b>" +
+           //   this.wois_unique_feature[this.group_choice] +
+           //   "</b>.";
           } else if (this.group_choice >= this.image_exp_max && this.penn_exp_var) {
             qfm =
-              qfm + (fqsa.length == 1 ? " contains the property above. This statement contains <b>" : " are the correct answer.  These statements contain <b>") +
+              qfm + (fqsa.length == 1 ? " contains <b>" + this.wois_unique_feature[this.group_choice] + "</b>." : " contain <b>"+ this.wois_unique_feature[this.group_choice] + "</b>.")// +" contains the property above. This statement contains <b>" : " are the correct answer.  These statements contain <b>") +
              // " The statement(s) contain <b>" +
-              this.wois_unique_feature[this.group_choice] +
-              "</b>.";
+             // this.wois_unique_feature[this.group_choice] +
+             // "</b>.";
           }
           console.log('qfm 1397 ' + qfm);
           console.log('feedback_counter ' + this.feedback_counter);
@@ -1557,13 +1558,13 @@ export default defineComponent({
           || (this.feedback_counter >= 2 && !A_is_part_of_the_second_answer) 
           || (this.feedback_counter == 1 && !A_is_part_of_the_first_answer))
           {
-            mess_0 = "<b> " + prp + " A</b> does not contain the property above <b>(" + this.wois_unique_feature[this.group_choice] +")</b> so the property cannot be a unique to <b>" + prp + " A</b>."; 
+            mess_0 = "<b> " + prp + " A</b> does not contain the property <b>" + this.wois_unique_feature[this.group_choice] +"</b> so the property cannot be a <b>unique</b> to <b>" + prp + " A</b>."; 
           } 
           // A has the property but so do others. 
           if ((this.feedback_counter >= 2 && A_is_part_of_the_second_answer && !A_is_the_only_second_answer) 
           || (this.feedback_counter == 1 && A_is_part_of_the_first_answer && !A_is_the_only_first_answer))
           {
-            mess_1 = "<b> " + prp + " A</b> contains the property above <b>(" + this.wois_unique_feature[this.group_choice] + ")</b> but so do other " + prp + "s, so the property cannot be a unique to <b>" + prp + " A</b>."; 
+            mess_1 = "<b> " + prp + " A</b> contains the property <b>" + this.wois_unique_feature[this.group_choice] + "</b> but so do other " + prp + "s, so the property cannot be a <b>unique</b> to <b>" + prp + " A</b>."; 
           } 
           // A has the property and it is the only one. 
           if ((A_is_the_only_first_answer && this.feedback_counter === 1) ||
@@ -1573,7 +1574,7 @@ export default defineComponent({
             if (this.feedback_counter == 1){
               prop = this
             }
-             mess_2 = "<b> " + prp + " A</b> is the only " + prp + " that contains the property above <b>(" + this.wois_unique_feature[this.group_choice] + ")</b> so it must be unique to <b>" + prp + " A </b>" 
+             mess_2 = "<b> " + prp + " A</b> is the only " + prp + " that contains the property <b>" + this.wois_unique_feature[this.group_choice] + "</b> so it must be <b>unique</b> to <b>" + prp + " A </b>" 
           }
           console.log('mess_0 1595 ' + mess_0);
           console.log('mess_1 1595 ' + mess_1);
@@ -1602,15 +1603,24 @@ export default defineComponent({
           this.show_feedback_modal = true;
           this.question_feedback_message = "Not Quite." + mess_2; 
        //   this.wois_data[this.group_choice].feedback_1;
-        } else if (second_answer_incorrect_f_t) { // answer if false, selection is true
+        } else if (second_answer_incorrect_f_t) { // answer is false, selection is true
           this.show_feedback_modal = true;
-          this.question_feedback_message = this.wois_data[this.group_choice].feedback_0;
+          if (!A_is_part_of_the_first_answer && !A_is_part_of_the_second_answer
+          || (this.feedback_counter >= 2 && !A_is_part_of_the_second_answer) 
+          || (this.feedback_counter == 1 && !A_is_part_of_the_first_answer))
+          {
+            this.question_feedback_message = "Not Quite. " + mess_0; 
+          } else if ((this.feedback_counter >= 2 && A_is_part_of_the_second_answer && !A_is_the_only_second_answer) 
+          || (this.feedback_counter == 1 && A_is_part_of_the_first_answer && !A_is_the_only_first_answer))
+          {
+            this.question_feedback_message = "Not Quite. " + mess_1; 
+          } else {
+            this.question_feedback_message = this.wois_data[this.group_choice].feedback_0;
+          }
         } else {
           // correct answer
           this.show_feedback_modal = true;
-         
-  
-         
+        
           if (this.wois_data[this.group_choice].second_question_answer == 0) {
             if (this.second_answer_correct){ // answer is false and response is false. 
             this.question_feedback_message =
@@ -1641,7 +1651,7 @@ export default defineComponent({
         alert('this.quesiton_feedback is undefined.  Find out why.')
       }
       console.log('show_feedback_modal ' + this.show_feedback_modal);
-      console.log('question_feedback_message 1573 ' + this.question_feedback_message);
+      console.log('question_feedback_message 1645 ' + this.question_feedback_message);
     },
     isImageAnswerCorrect: function (correctAnswer, inputAnswer) {
       // arrays are the same type
@@ -2283,9 +2293,9 @@ export default defineComponent({
             this.wois_data[this.group_choice].feedback_0 =
               "Not Quite. " +
               several_images +
-              " contain the property <b>(" +
+              " contain the property <b>" +
               this.wois_unique_feature[this.group_choice] +
-              ")</b> so <b>" +
+              "</b> so <b>" +
               "</b> the property cannot be <b><i>unique</i></b> to ONLY <b>" + stmt2;
               
           } else if (
@@ -2304,7 +2314,7 @@ export default defineComponent({
               "Not Quite. " + stmt4 + p1 + p2 + "</b> contains the property (" +
                this.wois_unique_feature[this.group_choice] +
                 ")</b> so <b>" +
-                "</b> the property cannot be a unique property of ONLY <b> " + stmt3;
+                "</b> the property cannot be <b>unique</b> to ONLY <b> " + stmt3;
                
           } else {
             console.log('setting second_question_answer to one 2243');
@@ -2398,11 +2408,11 @@ export default defineComponent({
             this.wois_data[this.group_choice].feedback_0 =
               "Not Quite. " +
               several_images +
-              " contain the property  <b>(" +
+              " contain the property <b>" +
               this.wois_unique_feature[this.group_choice] +
-              ")</b> so <b>" +
+              "</b> so <b>" +
            //   this.wois_unique_feature[this.group_choice] +
-              "</b> the property cannot be a unique property of ONLY <b>" +
+              "</b> the property cannot be <b>unique</b> to ONLY <b>" +
               e_stmt; 
           } else if (
             this.wois_data[this.group_choice].special_image_ans_id[0]["text"] != "A"
@@ -2573,9 +2583,9 @@ export default defineComponent({
               this.wois_data[this.group_choice].first_question_second_answer[0][
               "image"
               ] +
-              ")</b> so this property <b>(" +
+              ")</b> so the property <b>" +
               this.wois_unique_feature[this.group_choice] +
-              ")</b> cannot be a unique property of <b>Statement A</b>.";
+              "</b> cannot be <b>unique</b> to <b>Statement A</b>.";
           } else {
             // correct selection of statement A
             console.log('setting second_question_answer to one 2522');
@@ -2628,7 +2638,7 @@ export default defineComponent({
               "</b> possess this property <b>" +
               "</b> so this property <b>(" +
               this.wois_unique_feature[this.group_choice] +
-              ")</b> cannot be a unique property of ONLY <b>Statement A</b>.";
+              ")</b> cannot be <b>unique</b> to ONLY <b>Statement A</b>.";
           } else if (
             this.wois_data[this.group_choice].special_image_ans_id[0][
             "image"
@@ -2638,11 +2648,12 @@ export default defineComponent({
             console.log('setting second_question_answer to zero 2601');
             this.wois_data[this.group_choice].second_question_answer = 0;
             this.wois_data[this.group_choice].feedback_0 =
-              "Not Quite. The correct answer is <b>Statement" + st_arr[0] + ":(" +
-            this.wois_data[this.group_choice].special_image_ans_id[0]["image"] +
+              "Not Quite. <b>Statement A does not contain " + //+ st_arr[0] + ":(" +
+                this.wois_unique_feature[this.group_choice]
+           // this.wois_data[this.group_choice].special_image_ans_id[0]["image"] +
               ")</b> so this property <b>(" +
-              this.wois_unique_feature[this.group_choice] +
-              ")</b> cannot be a <b><i>unique</i></b> property of ONLY <b>Statement A</b>.";
+             // this.wois_unique_feature[this.group_choice] +
+              ")</b> cannot be <b><i>unique</i></b> to ONLY <b>Statement A</b>.";
           } else {
             this.wois_data[this.group_choice].special_image_ans_id = 1;
             this.wois_data[this.group_choice].feedback_0 =
@@ -2754,7 +2765,7 @@ export default defineComponent({
               this.wois_unique_feature[this.group_choice] +
               ")</b> so <b>" +
             //  this.wois_unique_feature[this.group_choice] +
-              "</b> this property cannot be a unique to ONLY <b>Statement A</b>.";
+              "</b> this property cannot be a <b>unique</b> to ONLY <b>Statement A</b>.";
           } else if (loop_var[0]["image"] != this.computed_image_array[0])
           { // single answer in wrong place. 
             // length is 1 so only one answer to check
@@ -2771,7 +2782,7 @@ export default defineComponent({
             console.log('second_answer_correct 2821' + this.second_answer_correct);
             if (this.second_answer_correct) {
               this.wois_data[this.group_choice].feedback_0 =
-                "Congratulations! <b>Statement A</b> is the ONLY statement with this property.";
+                "Congratulations! You are correct <b>Statement A</b> is the ONLY statement with this property.";
               //  this.wois_unique_feature[this.group_choice] +
              //   "</b> is a unique property of <b>Statement A</b>.";
                 this.wois_data[this.group_choice].feedback_1 =

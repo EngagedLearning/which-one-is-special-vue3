@@ -15,7 +15,7 @@ export default createRouter({
         name: "DemographicQuestionaire_21",
         component: DemographicQuestionaire,
         props: { experiment_id_prop: 21 },
-      },
+      },*/
       {
         base: import.meta.env.BASE_URL,
         path: "/WhichOneIsSpecialPrep_1",
@@ -24,7 +24,7 @@ export default createRouter({
         props: {
           which_one_is_special_prep_id_prop: 1,
           penn_exp_prop: false},
-    },*/
+    },
         {
         base: import.meta.env.BASE_URL,
         path: "/WhichOneIsSpecialPrep_2",

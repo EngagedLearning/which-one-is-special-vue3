@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "vite -d",
-    "build": "vite build -d",
-    "serve": "vite preview -d --logLevel 'info'",
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src"
   },
   "dependencies": {

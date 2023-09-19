@@ -5,9 +5,9 @@
           "value": 0,
           "type_data": 0,
           "feedback_0":
-            "<b>Correct Answer!</b> <b>Image A</b> should have been selected. Congratulations!",
+            "<b>Congratulations!</b> You are correct. <b>Image A</b> should have been selected. ",
           "feedback_1":
-            "<b>Correct Answer!</b> <b>Image A</b> should have been selected. Congratulations!"
+            "<b>Congratulations!</b> You are correct. <b>Image A</b> should have been selected. "
         },
         {
           "group_id": 0,
@@ -15,7 +15,7 @@
           "value": 1,
           "type_data": 0,
           "feedback_0": "<b>Image A</b> should have been selected.",
-          "feedback_1": "The correct answer is <b>'Image A'</b>"
+          "feedback_1": "<b>'Image A'</b> has the property <b>labeled with 'Image A'.</b>"
         },
         {
           "group_id": 0,
@@ -23,7 +23,7 @@
           "value": 2,
           "type_data": 0,
           "feedback_0": "<b>Image A</b> should have been selected.",
-          "feedback_1": "The correct answer is <b>'Image A'</b>"
+          "feedback_1": "<b>'Image A'</b> has the property <b>labeled with 'Image A'.</b>"
         },
         {
           "group_id": 0,
@@ -31,7 +31,7 @@
           "value": 3,
           "type_data": 0,
           "feedback_0": "<b>Image A</b> should have been selected.",
-          "feedback_1": "The correct answer is <b>'Image A'</b>"
+          "feedback_1": "<b>'Image A'</b> has the property <b>labeled with 'Image A'</b>"
         },
         {
           "group_id": 1,
@@ -40,7 +40,7 @@
           "type_data": 0,
           "feedback_0": "Has chocolate chips",
           "feedback_1":
-            "The correct answer is <b>'Images B and C have chocolate chips'</b>."
+            "<b>'Images B and C</b> have the property contain <b>chocolate chips'</b>."
         },
         {
           "group_id": 1,
@@ -48,9 +48,9 @@
           "value": 5,
           "type_data": 0,
           "feedback_0":
-            "<b>Correct Answer!</b> <b>Images B and C contain chocolate chips</b>. Congratulations!",
+            "<b>Congratulations!</b> You are correct. <b>Images B and C contain chocolate chips</b>. ",
           "feedback_1":
-            "<b>Correct Answer!</b> </b>Images B and C contain chocolate chips</b>. Congratulations!"
+            "<b>Congratulations!</b> You are correct. </b>Images B and C contain chocolate chips</b>. "
         },
         {
           "group_id": 1,
@@ -58,9 +58,9 @@
           "value": 6,
           "type_data": 0,
           "feedback_0":
-            "<b>Correct Answer!</b> <b>Images B and C contain chocolate chips</b>. Congratulations!",
+            "<b>Congratulations!</b> You are correct. <b>Images B and C contain chocolate chips</b>. ",
           "feedback_1":
-            "<b>Correct Answer!</b> <b>Images B and C contain chocolate chips</b>. Congratulations!"
+            "<b>Congratulations!</b> You are correct. <b>Images B and C contain chocolate chips</b>. "
         },
         {
           "group_id": 1,
@@ -69,7 +69,7 @@
           "type_data": 0,
           "feedback_0": "Has chocolate chips",
           "feedback_1":
-            "The correct answer is <b>'Images B and C have chocolate chips'</b>."
+            "<b>'Images B and C show an image which has chocolate chips'</b>."
         },
         {
           "group_id": 2,
@@ -78,7 +78,7 @@
           "type_data": 0,
           "feedback_0": "Has the color pink.",
           "feedback_1":
-            "The correct answer is <b>'Image C'</b>. It is the only image with <b>a value greater than 1200</b>. "
+            "<b>'Image C'</b> is the only image with <b>a value greater than 1200</b>. "
         },
         {
           "group_id": 2,
@@ -87,7 +87,7 @@
           "type_data": 0,
           "feedback_0": "Has the color pink.",
           "feedback_1":
-            "The correct answer is <b>'Image C'</b>. It is the only image with <b>a value greater than 1200</b>."
+            "<b>'Image C'</b> is the only image with <b>a value greater than 1200</b>."
         },
         {
           "group_id": 2,
@@ -95,9 +95,9 @@
           "value": 10,
           "type_data": 0,
           "feedback_0":
-            "<b>Correct Answer!</b> <b>Image C</b> is the only image with <b>a value greater than 1200</b>. Congratulations!",
+            "<b>Congratulations!</b> You are correct. <b>Image C</b> is the only image with <b>a value greater than 1200</b>. ",
           "feedback_1":
-            "<b>Correct Answer!</b> <b>Image C</b> is the only image with <b>a value greather than 1200</b>. Congratulations!"
+            "<b>Congratulations!</b> You are correct. <b>Image C</b> is the only image with <b>a value greather than 1200</b>. "
         },
 
         {
@@ -107,16 +107,16 @@
           "type_data": 0,
           "feedback_0": "Has the color pink.",
           "feedback_1":
-            "The correct answer is <b>Image C</b> is the only image with <b>a value greater than 1200</b>."
+            "<b>Image C</b> is the only image with <b>a value greater than 1200</b>."
         },
         {
           "group_id": 3,
           "text": "Image A",
           "value": 12,
           "type_data": 0,
-          "feedback_0": "does not contain the color red. ",
+          "feedback_0": "contains a basket. ",
           "feedback_1":
-            "The correct answer is <b>'Image B</b> . It is the only image that <b>does not contain the color red</b>."
+            "<b>'Image B</b> is the only image which contains <b>a basket</b>."
         },
         {
           "group_id": 3,
@@ -124,18 +124,18 @@
           "value": 13,
           "type_data": 0,
           "feedback_0":
-            "<b>Correct Answer!</b> <b>Image B</b> is the only image that <b>does not contain the color red</b>. Congratulations!",
+            "<b>Congratulations!</b> You are correct. <b>Image B</b> is the only image which contains <b>a basket</b>.",
           "feedback_1":
-            "<b>Correct Answer!</b> <b>Image B</b> is the only image that <b>does not contain the color red</b>. Congratulations!"
+            "<b>Congratulations!</b> You are correct. <b>Image B</b> is the only image which contains <b>a basket/b>."
         },
         {
           "group_id": 3,
           "text": "Image C",
           "value": 14,
           "type_data": 0,
-          "feedback_0": "does not contain the color red. ",
+          "feedback_0": "contains a basket. ",
           "feedback_1":
-            "The correct answer is <b>'<b>Image B'</b>.  It is the only image that <b>does not contain the color red</b>."
+            "<b>Image B'</b> is the only image which contains <b>a basket</b>."
         },
 
         {
@@ -143,9 +143,9 @@
           "text": "Image D",
           "value": 15,
           "type_data": 0,
-          "feedback_0": "does not contain the color red. ",
+          "feedback_0": "contains a basket. ",
           "feedback_1":
-            "The correct answer is <b>'Image B'</b> It is the only image that <b>does not contain the color red</b>."
+            "<b>'Image B'</b> is the only image which contains <b>a basket</b>."
         },
         {
           "group_id": 4,
@@ -153,9 +153,9 @@
           "value": 16,
           "type_data": 0,
           "feedback_0":
-            "<b>Correct Answer!</b> <b>Images A, B and C</b> have an image with <b>a currency value of 10 cents</b>. Congratulations!",
+            "<b>Congratulations!</b> You are correct. <b>Images A, B and C</b> show an image with <b>a currency value of 10 cents</b>. ",
           "feedback_1":
-            "<b>Correct Answer!</b> <b>Images A, B and C</b> have an image with <b>a currency value of 10 cents</b>. Congratulations!"
+            "<b>Congratulations!</b> You are correct. <b>Images A, B and C</b> show an image with <b>a currency value of 10 cents</b>. "
         },
         {
           "group_id": 4,
@@ -163,9 +163,9 @@
           "value": 17,
           "type_data": 0,
           "feedback_0":
-            "<b>Correct Answer!</b> <b>Images A, B and C</b> have an image with <b>a currency value of 10 cents</b>. Congratulations!",
+            "Congratulations!</b> You are correct. <b>Images A, B and C</b> show an image with <b>a currency value of 10 cents</b>. ",
           "feedback_1":
-            "<b>Correct Answer!</b> <b>Images A, B and C</b> have an image with <b>a currency value of 10 cents</b>. Congratulations!"
+            "Congratulations!</b> You are correct. <b>Images A, B and C</b> show an image with <b>a currency value of 10 cents</b>. "
         },
         {
           "group_id": 4,
@@ -173,9 +173,9 @@
           "value": 18,
           "type_data": 0,
           "feedback_0":
-            "<b>Correct Answer!</b> <b>Images A, B and C</b> have an image with <b>a currency value of 10 cents</b>. Congratulations!",
+            "<b>Congratulations!</b> You are correct. <b>Images A, B and C</b> show an image with <b>a currency value of 10 cents</b>. ",
           "feedback_1":
-            "<b>Correct Answer!</b> <b>Images A, B and C</b> have an image with a <b>currency value of 10 cents</b>. Congratulations!"
+            "<b>Congratulations!</b> You are correct. <b>Images A, B and C</b> show an image with a <b>currency value of 10 cents</b>. "
         },
 
         {
@@ -185,16 +185,16 @@
           "type_data": 0,
           "feedback_0": "Has a currency value of 10 cents",
           "feedback_1":
-            "The correct answer is <b>'Images A,B,C</b> have an image with <b>a currency value of 10 cents</b>."
+            "<b>'Images A,B,C</b> show an image with <b>a currency value of 10 cents</b>."
         },
         {
           "group_id": 5,
           "text": "Image A",
           "value": 20,
           "type_data": 0,
-          "feedback_0": "Shows an odd number of coins",
+          "feedback_0": "Shows a picture odd number of coins",
           "feedback_1":
-            "The correct answer is <b>'Image B</b>. It shows an image with <b>an odd number of coins</b>."
+            "<b>'Image B</b> shows a picture with <b>an odd number of coins</b>."
         },
         {
           "group_id": 5,
@@ -202,9 +202,9 @@
           "value": 21,
           "type_data": 0,
           "feedback_0":
-            "<b>Correct Answer!</b> <b>Image B</b> shows an image <b>with an odd number of coins</b>. Congratulations!",
+            "<b>Congratulations!</b> You are correct. <b>Image B</b> shows a picture with an <b>odd number of coins</b>. ",
           "feedback_1":
-            "<b>Correct Answer!</b> <b>Image B</b> shows an image with an <b>odd number of coins</b>. Congratulations!"
+            "<b><b>Congratulations!</b> You are correct. <b>Image B</b> shows a picture with an <b>odd number of coins</b>. "
         },
         {
           "group_id": 5,
@@ -213,7 +213,7 @@
           "type_data": 0,
           "feedback_0": "Shows an odd number of coins",
           "feedback_1":
-            "The correct answer is <b>'Image B'</b> It shows an image with <b>an odd number of coins</b>."
+            "<b>'Image B'</b>shows a picture with an <b>odd number of coins</b>."
         },
         {
           "group_id": 5,
@@ -222,34 +222,34 @@
           "type_data": 0,
           "feedback_0": "Shows an odd number of coins",
           "feedback_1":
-            "The correct answer is <b>'Image B'</b>. It shows an image with <b>an odd number of coins</b>."
+            "<b>'Image B'</b> shows a picture with an <b>odd number of coins</b>."
         },
         {
           "group_id": 6,
           "text": "Image A",
           "value": 24,
           "type_data": 0,
-          "feedback_0": "shows an image of an apple",
+          "feedback_0": "shows <b>a picture of an apple",
           "feedback_1":
-            "The correct answer is <b>'Image D'</b>  It shows an image <b>with an apple</b>."
+            "<b>'Image D'</b> shows <b>a picture of an apple</b>."
         },
         {
           "group_id": 6,
           "text": "Image B",
           "value": 25,
           "type_data": 0,
-          "feedback_0": "shows an image of an apple",
+          "feedback_0": "shows <b>a picture of an apple",
           "feedback_1":
-            "The correct answer is <b>'Image D'</b> . It shows an image <b>with an apple</b>."
+            "<b>'Image D'</b> shows <b>a picture of an apple</b>."
         },
         {
           "group_id": 6,
           "text": "Image C",
           "value": 26,
           "type_data": 0,
-          "feedback_0": "shows an image of an apple",
+          "feedback_0": "shows <b>a picture of an apple",
           "feedback_1":
-            "The correct answer is <b>'Image D'</b>. It shows an image <b>with an apple</b>."
+            "<b>'Image D'</b> shows <b>a picture of an apple</b>."
         },
         {
           "group_id": 6,
@@ -257,9 +257,9 @@
           "value": 27,
           "type_data": 0,
           "feedback_0":
-            "<b>Correct Answer!</b> <b>Image D</b> shows an image <b>with an apple</b>. Congratulations!",
+            "<b>Congratulations!</b> You are correct. <b>Image D</b> shows <b>a picture of an apple</b>. ",
           "feedback_1":
-            "<b>Correct Answer!</b> <b>Image D</b> shows an image <b>with an apple</b>. Congratulations!"
+            "<b>Congratulations!</b> You are correct. <b>Image D</b> shows <b>a picture of an apple</b>. "
         },
         {
           "group_id": 7,
@@ -267,9 +267,9 @@
           "value": 28,
           "type_data": 0,
           "feedback_0":
-            "<b>Correct Answer!</b> <b>Images A and B</b> show <b>images of fruit</b>. Congratulations!",
+            "<b>Congratulations!</b> You are correct. <b>Images A and B</b> show <b>a picture of fruit</b>. ",
           "feedback_1":
-            "<b>Correct Answer!</b> <b>Images A and B</b> show <b>images of fruit</b>. Congratulations!"
+            "<b>Congratulations!</b> You are correct. <b>Images A and B</b> show <b>a picture of fruit</b>. "
         },
         {
           "group_id": 7,
@@ -277,36 +277,36 @@
           "value": 29,
           "type_data": 0,
           "feedback_0":
-            "<b>Correct Answer!</b> <b>Images A and B</b> show <b>images of fruit</b>. Congratulations!",
+            "<b>Congratulations!</b> You are correct. <b>Images A and B</b> show <b>a picture of fruit</b>. ",
           "feedback_1":
-            "<b>Correct Answer!</b> <b>Images A and B</b> show <b>images of fruit</b>. Congratulations!"
+            "<b>Congratulations!</b> You are correct. <b>Images A and B</b> show <b>a picture of fruit</b>. "
         },
         {
           "group_id": 7,
           "text": "Image C",
           "value": 30,
           "type_data": 0,
-          "feedback_0": "shows an image of fruit",
+          "feedback_0": "shows a picture of fruit",
           "feedback_1":
-            "The correct answer is <b>'Images A and B'</b>. They show <b>images of fruit</b>."
+            "<b>'Images A and B'</b> show <b>a picture of fruit</b>."
         },
         {
           "group_id": 7,
           "text": "Image D",
           "value": 31,
           "type_data": 0,
-          "feedback_0": "shows an image of fruit",
+          "feedback_0": "shows a picture of fruit",
           "feedback_1":
-            "The correct answer is <b>'Images A and B'</b>. They show <b>images of fruit</b>."
+            "<b>'Images A and B'</b> show <b>a picture of fruit</b>."
         },
         {
           "group_id": 8,
           "text": "Image A",
           "value": 32,
           "type_data": 0,
-          "feedback_0": "does not contain the color red. ",
+          "feedback_0": "contains a basket. ",
           "feedback_1":
-            "The correct answer is <b>'Image B'</b>. It is the only image that <b>does not contain the color red</b>."
+            "<b>'Image B'</b> is the only image which shows <b>a basket</b>."
         },
         {
           "group_id": 8,
@@ -314,27 +314,27 @@
           "value": 33,
           "type_data": 0,
           "feedback_0":
-            "<b>Correct Answer!</b> <b>Image B</b> is the only image that <b>does not contain the color red</b>. Congratulations!",
+            "<b>Congratulations!</b> You are correct. <b>Image B</b> is the only image which shows <b>a basket</b>. ",
           "feedback_1":
-            "<b>Correct Answer!</b> <b>Image B</b> is the only image that <b>does not contain the color red</b>. Congratulations!"
+            "<b>Congratulations!</b> You are correct. <b>Image B</b> is the only image which shows <b>a basket</b>. "
         },
         {
           "group_id": 8,
           "text": "Image C",
           "value": 34,
           "type_data": 0,
-          "feedback_0": "does not contain the color red. ",
+          "feedback_0": "contains a basket. ",
           "feedback_1":
-            "The correct answer is <b>'Image B'</b>. It is the only image that <b>does not contain the color red</b>."
+            "<b>'Image B'</b> is the only image which shows <b>a basket</b>."
         },
         {
           "group_id": 8,
           "text": "Image D",
           "value": 35,
           "type_data": 0,
-          "feedback_0": "does not contain the color red. ",
+          "feedback_0": "contains a basket. ",
           "feedback_1":
-            "The correct answer is <b>'Image B'</b>. It is the only image that <b>does not contain the color red</b>."
+            "<b>'Image B'</b> is the only image which shows <b>a basket</b>."
         },
         {
           "group_id": 9,
@@ -343,7 +343,7 @@
           "type_data": 0,
           "feedback_0": "contains more than 10 circles ",
           "feedback_1":
-            "The correct answer is <b>'Image B'</b>.  It is the only image that <b>contains more than 10 circles.</b>"
+            "<b>'Image B'</b> is the only image which shows <b>more than 10 circles.</b>"
         },
         {
           "group_id": 9,
@@ -351,9 +351,9 @@
           "value": 37,
           "type_data": 0,
           "feedback_0":
-            "<b>Correct Answer!</b> <b>Image B</b> is the only image that <b>contains more than 10 circles</b>. Congratulations!",
+            "<b>Congratulations!</b> You are correct. <b>Image B</b> is the only image which shows <b>more than 10 circles</b>. ",
           "feedback_1":
-            "<b>Correct Answer!</b> <b>Image B</b> is the only image that <b>contains more than 10 circles</b>. Congratulations!"
+            "<b>Congratulations!</b> You are correct. <b>Image B</b> is the only image which shows <b>more than 10 circles</b>. "
         },
         {
           "group_id": 9,
@@ -361,7 +361,7 @@
           "value": 38,
           "type_data": 0,
           "feedback_0": "contains more tha 10 circles. ",
-          "feedback_1": "The correct answer is <b>'Image B'</b>. It is the only image that <b>contains more than 10 circles</b>."
+          "feedback_1": "<b>'Image B'</b> is the only image which shows <b>more than 10 circles</b>."
         },
         {
           "group_id": 9,
@@ -369,23 +369,23 @@
           "value": 39,
           "type_data": 0,
           "feedback_0": "contains more than 10 circles. ",
-          "feedback_1":"The correct answer is <b>'Image B'</b>. It is the only image that <b>contains more than 10 circles</b>."
+          "feedback_1":"<b>'Image B'</b> is the only image which shows <b>more than 10 circles</b>."
         },
         {
           "group_id": 10,
           "text": "Image A",
           "value": 40,
           "type_data": 0,
-          "feedback_0":"<b>Correct Answer!</b> <b>Images A, B and C</b> have an image <b>containing one or more squares</b>. Congratulations!",
-          "feedback_1":"<b>Correct Answer!</b> <b>Images A, B and C</b> have an image <b>containing one or more squares</b>. Congratulations!"
+          "feedback_0":"<b>Congratulations!</b> You are correct. <b>Images A, B and C</b> show <b>one or more squares</b>. ",
+          "feedback_1":"<b>Congratulations!</b> You are correct. <b>Images A, B and C</b> show <b>one or more squares</b>. "
         },
         {
           "group_id": 10,
           "text": "Image B",
           "value": 41,
           "type_data": 0,
-          "feedback_0":"<b>Correct Answer!</b> <b>Images A, B and C</b> have an image <b>containing one or more squares</b>. Congratulations!",
-          "feedback_1":"<b>Correct Answer!</b> <b>Images A, B and C</b> have an image <b>containing one or more squares</b>. Congratulations!"
+          "feedback_0":"<b>Congratulations!</b> You are correct. <b>Images A, B and C</b> show <b>one or more squares</b>. ",
+          "feedback_1":"<b>Congratulations!</b> You are correct. <b>Images A, B and C</b> show <b>one or more squares</b>. "
         },
         {
           "group_id": 10,
@@ -393,9 +393,9 @@
           "value": 42,
           "type_data": 0,
           "feedback_0":
-            "<b>Correct Answer!</b> <b>Images A, B and C</b> have an image <b>containing one or more squares</b>. Congratulations!",
+            "<b><b>Congratulations!</b> You are correct. <b>Images A, B and C</b> show <b>one or more squares</b>. ",
           "feedback_1":
-            "<b>Correct Answer!</b> <b>Images A, B and C</b> have an image <b>containing one or more squares</b>. Congratulations!"
+            "<b>Congratulations!</b> You are correct. <b>Images A, B and C</b> show <b>one or more squares</b>. "
         },
 
         {
@@ -405,7 +405,7 @@
           "type_data": 0,
           "feedback_0": "contains an image with a square",
           "feedback_1":
-            "The correct answer is <b>'Images A, B, and C</b> have an image <b>containing one or more squares</b>."
+            "<b>'Images A, B, and C</b> show <b>one or more squares</b>."
         },
         {
           "group_id": 11,
@@ -413,9 +413,9 @@
           "value": 44,
           "type_data": 0,
           "feedback_0":
-            "<b>Correct Answer!</b> <b>Images A, B and D</b> have an image <b>with an even number of circles</b>. Congratulations!",
+            "<b>Congratulations!</b> You are correct. <b>Images A, B and D</b> show <b>an even number of circles</b>. ",
           "feedback_1":
-            "<b>Correct Answer!</b> <b>Images A, B and D</b> have an image <b>with an even number of circles</b>. Congratulations!"
+            "<b>Congratulations!</b> You are correct. <b>Images A, B and D</b> show <b>an even number of circles</b>. "
         },
         {
           "group_id": 11,
@@ -423,9 +423,9 @@
           "value": 45,
           "type_data": 0,
           "feedback_0":
-            "<b>Correct Answer!</b> <b>Images A, B and D</b> have an image <b>with an even number of circles</b>. Congratulations!",
+            "<b>Congratulations!</b> You are correct. <b>Images A, B and D</b> show <b>an even number of circles</b>. ",
           "feedback_1":
-            "<b>Correct Answer!</b> <b>Images A, B and D</b> have an image <b>with an even number of circles</b>. Congratulations!"
+            "<b>Congratulations!</b> You are correct. <b>Images A, B and D</b> show <b>an even number of circles</b>. "
         },
         {
           "group_id": 11,
@@ -434,7 +434,7 @@
           "type_data": 0,
           "feedback_0": "contains an image with an even number of circles.",
           "feedback_1":
-            "The correct answer is <b>'Images A,B,and D'</b> have an image <b>with an even number of circles</b>."
+            "<b>'Images A,B, and D'</b> show <b>an even number of circles</b>."
         },
         {
           "group_id": 11,
@@ -442,9 +442,9 @@
           "value": 47,
           "type_data": 0,
           "feedback_0":
-            "<b>Correct Answer!</b> <b>'Images A, B and D'</b> have an image <b>with an even number of circles</b>. Congratulations!",
+            "<b>Congratulations!</b> You are correct. <b>'Images A, B and D'</b> show <b>an even number of circles</b>. ",
           "feedback_1":
-            "<b>Correct Answer!</b> <b>'Images A, B and D'</b> have an image <b>with an even number of circles</b>. Congratulations!"
+            "<b>Congratulations!</b> You are correct. <b>'Images A, B and D'</b> show <b>an even number of circles</b>. "
         },
         {
           "group_id": 12,
@@ -452,9 +452,9 @@
           "value": 48,
           "type_data": 1,
           "feedback_0":
-            "<b>Correct Answer!</b> <b>Statement A:(Abc)</b> is the only statement <b>without the letter 'e'</b>. Congratulations!",
+            "<b>Congratulations!</b> You are correct. <b>Statement A:(Abc)</b> is the only statement which <b>does NOT contain the letter 'e'</b>. ",
           "feedback_1":
-            "<b>Correct Answer!</b> <b>Statement A:(Abc)</b> is the only statement <b>without the letter 'e'</b>. Congratulations!"
+            "<b>Congratulations!</b> You are correct. <b>Statement A:(Abc)</b> is the only statement which <b>does NOT contain the letter 'e'</b>. "
         },
         {
           "group_id": 12,
@@ -463,7 +463,7 @@
           "type_data": 1,
           "feedback_0": "contains the letter 'e'.",
           "feedback_1":
-            "The correct answer is <b>Statement A:(Abc)</b>, is the only statement <b>without the letter 'e'</b>."
+            "<b>Statement A:(Abc)</b> is the only statement which <b>does NOT contain the letter 'e'</b>."
         },
         {
           "group_id": 12,
@@ -472,7 +472,7 @@
           "type_data": 1,
           "feedback_0": "contains the letter 'e'.",
           "feedback_1":
-            "The correct answer is <b>Statement A:(Abc)</b>, which is the only statement <b>without the letter 'e'</b>."
+            "<b>Statement A:(Abc)</b> is the only statement which <b>does NOT contain the letter 'e'</b>."
         },
         {
           "group_id": 12,
@@ -481,7 +481,7 @@
           "type_data": 1,
           "feedback_0": "contains the letter 'e'.",
           "feedback_1":
-            "The correct answer is <b>Statement A:(Abc)</b>, which is the only statement <b>without the letter 'e'</b>."
+            "<b>Statement A:(Abc)</b> is the only statement which <b>does NOT contain the letter 'e'</b>."
         },
         {
           "group_id": 13,
@@ -489,9 +489,9 @@
           "value": 52,
           "type_data": 1,
           "feedback_0":
-            "<b>Correct Answer!</b> <b>Statement A: (4 ducks)</b>, which is the only <b>statement with a number</b>. Congratulations!",
+            "<b>Congratulations!</b> You are correct. <b>Statement A: (4 ducks)</b> is the only statement which contains <b>a number</b>. ",
           "feedback_1":
-            "<b>Correct Answer!</b> <b>Statement A: (4 ducks)</b> which is the only <b>statement with a number</b>. Congratulations!"
+            "<b>Congratulations!</b> You are correct. <b>Statement A: (4 ducks)</b> is the only statement which contains <b>a number</b>. "
         },
         {
           "group_id": 13,
@@ -500,7 +500,7 @@
           "type_data": 1,
           "feedback_0": "contains a number.",
           "feedback_1":
-            "The correct answer is <b>Statement A: (4 ducks)</b>, which is the only <b>statement with a number</b>."
+            "<b>Statement A: (4 ducks)</b> is the only statement which contains <b>a number</b>."
         },
         {
           "group_id": 13,
@@ -509,7 +509,7 @@
           "type_data": 1,
           "feedback_0": "contains a number.",
           "feedback_1":
-            "The correct answer is <b>Statement A: (4 ducks)</b>, which is the only <b>statement with a number</b>."
+            "<b>Statement A: (4 ducks)</b> is the only statement which contains <b>a number</b>."
         },
         {
           "group_id": 13,
@@ -518,7 +518,7 @@
           "type_data": 1,
           "feedback_0": "contains a number.",
           "feedback_1":
-            "The correct answer is <b>Statement A: (4 ducks)</b>, which is the only <b>statement with a number</b>."
+            "<b>Statement A: (4 ducks)</b>is the only statement which contains <b>a number</b>."
         },
         {
           "group_id": 14,
@@ -527,7 +527,7 @@
           "type_data": 1,
           "feedback_0": "select Statement B",
           "feedback_1":
-            "The correct answer is <b>Statement B: (Seven geese)</b>, which you were <b>directed to select</b>."
+            "<b>Statement B: (Seven geese)</b> is the only statement <b>labeled with 'Statement B'</b>"
         },
         {
           "group_id": 14,
@@ -535,9 +535,9 @@
           "value": 57,
           "type_data": 1,
           "feedback_0":
-            "<b>Correct Answer!</b>  The correct answer is <b>Statement B</b> which you were <b>directed to select</b>. Congratulations!",
+            "<b>Congratulations!</b> You are correct.  <b>Statement B</b> is the only statement <b>labeled with 'Statement B'</b> . ",
           "feedback_1":
-            "<b>Correct Answer!</b>  The correct answer is <b>Statement B</b> which you were <b>directed to select</b>. Congratulations!"
+            "<b>Congratulations!</b> You are correct.  <b>Statement B</b> is the only statement <b>labeled with 'Statement B'</b>. "
         },
         {
           "group_id": 14,
@@ -546,7 +546,7 @@
           "type_data": 1,
           "feedback_0": "select Statement B",
           "feedback_1":
-            "The correct answer is <b>Statement B: (Seven geese)</b>, which you were <b>directed to select</b>."
+            "<b>Statement B: (Seven geese)</b> is the only statement <b>labeled with 'Statement B'</b>."
         },
         {
           "group_id": 14,
@@ -555,7 +555,7 @@
           "type_data": 1,
           "feedback_0": "select Statement B",
           "feedback_1":
-            "The correct answer is <b>Statement B: (Seven geese)</b>, which you were <b>directed to select</b>."
+            "<b>Statement B: (Seven geese)</b>is the only statement <b>labeled with 'Statement B'</b>."
         },
         {
           "group_id": 15,
@@ -564,7 +564,7 @@
           "type_data": 1,
           "feedback_0": "contains a mammal",
           "feedback_1":
-            "The correct answer is <b>Statement B: (Cat talking)</b> and <b>Statement C: (Dog humming)</b> and <b>Statement D:(Mouse singing)</b>, which all <b>contain a word for a mammal</b>."
+            "<b>Statement B: (Cat talking)</b> and <b>Statement C: (Dog humming)</b> and <b>Statement D:(Mouse singing)</b> all contain <b>a word for a mammal</b>."
         },
         {
           "group_id": 15,
@@ -572,9 +572,9 @@
           "value": 61,
           "type_data": 1,
           "feedback_0":
-            "<b>Correct Answer!</b>  The correct answer is <b>Statement B: (Cat talking)</b> and <b>Statement C: (Dog humming)</b> and <b>Statement D: (Mouse singing)</b>, which all <b>contain a word for a mammal</b>. Congratulations!",
+            "<b>Congratulations!</b> You are correct.  <b>Statement B: (Cat talking)</b> and <b>Statement C: (Dog humming)</b> and <b>Statement D: (Mouse singing)</b> all contain <b>a word for a mammal</b>. ",
           "feedback_1":
-            "<b>Correct Answer!</b>  The correct answer is <b>Statement B: (Cat talking)</b> and <b>Statement C: (Dog humming)</b> and <b>Statement D: (Mouse singing)</b>, which all <b>contain a word for a mammal</b>. Congratulations!"
+            "<b>Congratulations!</b> You are correct.  <b>Statement B: (Cat talking)</b> and <b>Statement C: (Dog humming)</b> and <b>Statement D: (Mouse singing)</b> all contain <b>a word for a mammal</b>. "
         },
         {
           "group_id": 15,
@@ -582,9 +582,9 @@
           "value": 62,
           "type_data": 1,
           "feedback_0":
-            "<b>Correct Answer!</b>  The correct answer is <b>Statement B: (Cat talking)</b> and <b>Statement C: (Dog humming)</b> and <b>Statement D: (Mouse singing)</b>, which all <b>contain a word for a mammal</b>. Congratulations!",
+            "<b>Congratulations!</b> You are correct.  <b>Statement B: (Cat talking)</b> and <b>Statement C: (Dog humming)</b> and <b>Statement D: (Mouse singing)</b> all contain <b>a word for a mammal</b>. ",
           "feedback_1":
-            "<b>Correct Answer!</b>  The correct answer is <b>Statement B: (Cat talking)</b> and <b>Statement C: (Dog humming)</b> and <b>Statement D: (Mouse singing)</b>, which all <b>contain a word for a mammal</b>. Congratulations!"
+            "<b>Congratulations!</b> You are correct.  <b>Statement B: (Cat talking)</b> and <b>Statement C: (Dog humming)</b> and <b>Statement D: (Mouse singing)</b> all contain <b>a word for a mammal</b>. "
         },
         {
           "group_id": 15,
@@ -592,9 +592,9 @@
           "value": 63,
           "type_data": 1,
           "feedback_0":
-            "<b>Correct Answer!</b>  The correct answer is <b>Statement B: (Cat talking)</b> and <b>Statement C: (Dog humming)</b> and <b>Statement D: (Mouse singing), which all <b>contain a word for a mammal</b>. Congratulations!",
+            "<b>Congratulations!</b> You are correct.  <b>Statement B: (Cat talking)</b> and <b>Statement C: (Dog humming)</b> and <b>Statement D: (Mouse singing) all contain <b>a word for a mammal</b>. ",
           "feedback_1":
-            "<b>Correct Answer!</b>  The correct answer is <b>Statement B: (Cat talking)</b> and <b>Statement C: (Dog humming)</b> and <b>Statement D: (Mouse singing), which all <b>contain a word for a mammal</b>. Congratulations!"
+            "<b>Congratulations!</b> You are correct.  <b>Statement B: (Cat talking)</b> and <b>Statement C: (Dog humming)</b> and <b>Statement D: (Mouse singing) all contain <b>a word for a mammal</b>. "
         },
         {
           "group_id": 16,
@@ -602,9 +602,9 @@
           "value": 64,
           "type_data": 1,
           "feedback_0":
-            "<b>Correct Answer!</b>  The correct answer is <b>Statement A: (Duck quacking)</b> and <b>Statement C: (Goose honking)</b>, which all <b>contain a word for a bird</b>. Congratulations!",
+            "<b>Congratulations!</b> You are correct.  <b>Statement A: (Duck quacking)</b> and <b>Statement C: (Goose honking)</b> all contain <b>a word for a bird</b>. ",
           "feedback_1":
-            "<b>Correct Answer!</b>  The correct answer is <b>Statement A: (Duck quacking)</b> and <b>Statement C: (Goose honking)</b>, which all <b>contain a word for a bird</b>. Congratulations!"
+            "<b>Congratulations!</b> You are correct.  <b>Statement A: (Duck quacking)</b> and <b>Statement C: (Goose honking)</b> all contain <b>a word for a bird</b>. "
         },
         {
           "group_id": 16,
@@ -613,7 +613,7 @@
           "type_data": 1,
           "feedback_0": "contains a word for a bird",
           "feedback_1":
-            "The correct answer is <b>Statement A: (Duck quacking)</b> and <b>Statement C: (Goose honking)</b>, which all <b>contain a word for a bird</b>."
+            "<b>Statement A: (Duck quacking)</b> and <b>Statement C: (Goose honking)</b> all contain <b>a word for a bird</b>."
         },
         {
           "group_id": 16,
@@ -621,9 +621,9 @@
           "value": 66,
           "type_data": 1,
           "feedback_0":
-            "<b>Correct Answer!</b>  The correct answer is <b>Statement A: (Duck quacking)</b> and <b>Statement C: (Goose honking)</b>, which all <b>contain a word for a bird</b>. Congratulations!",
+            "<b>Congratulations!</b> You are correct.  <b>Statement A: (Duck quacking)</b> and <b>Statement C: (Goose honking)</b> all contain <b>a word for a bird</b>. ",
           "feedback_1":
-            "<b>Correct Answer!</b>  The correct answer is <b>Statement A: (Duck quacking)</b> and <b>Statement C: (Goose honking)</b>, which all <b>contain a word for a bird</b>. Congratulations!"
+            "<b>Congratulations!</b> You are correct.  <b>Statement A: (Duck quacking)</b> and <b>Statement C: (Goose honking)</b> all contain <b>a word for a bird</b>. "
         },
         {
           "group_id": 16,
@@ -632,7 +632,7 @@
           "type_data": 1,
           "feedback_0": "contains a word for a bird",
           "feedback_1":
-            "<b>Correct Answer!</b>  The correct answer is <b>Statement A: (Duck quacking)</b> and <b>Statement C: (Goose honking)</b>, which all <b>contain a word for a bird</b>. Congratulations!"
+            "<b>Congratulations!</b> You are correct.  <b>Statement A: (Duck quacking)</b> and <b>Statement C: (Goose honking)</b> all contain <b>a word for a bird</b>. "
         },
         {
           "group_id": 17,
@@ -641,7 +641,7 @@
           "type_data": 1,
           "feedback_0": "contains an English language word",
           "feedback_1":
-            "<b>The correct answer is <b>Statement B: (Bat)</b> and <b>Statement D: (Banana)</b>, which all <b>contain an English Language word</b>."
+            "<b>Statement B: (Bat)</b> and <b>Statement D: (Banana)</b> all contain <b>an English Language word</b>."
         },
         {
           "group_id": 17,
@@ -649,9 +649,9 @@
           "value": 69,
           "type_data": 1,
           "feedback_0":
-            "<b>Correct Answer!</b>  The correct answer is <b>Statement B: (Bat)</b> and <b>Statement D: (Banana)</b>, which all <b>contain an English language word</b>. Congratulations!",
+            "<b>Congratulations!</b> You are correct. <b>Statement B: (Bat)</b> and <b>Statement D: (Banana)</b> all contain <b>an English language word</b>. ",
           "feedback_1":
-            "<b>Correct Answer!</b>  The correct answer is <b>Statement B: (Bat)</b> and <b>Statement D: (Banana)</b>, which all <b>contain an English language word</b>. Congratulations!"
+            "<b>Congratulations!</b> You are correct.  <b>Statement B: (Bat)</b> and <b>Statement D: (Banana)</b> all contain <b>an English language word</b>. "
         },
         {
           "group_id": 17,
@@ -660,7 +660,7 @@
           "type_data": 1,
           "feedback_0": "contains an English language word",
           "feedback_1":
-            "The correct answer is <b>Statement B: (Bat)</b> and <b>Statement D: (Banana)</b>, which all <b>contain an English language word</b>."
+            "<b>Statement B: (Bat)</b> and <b>Statement D: (Banana)</b> all contain <b>an English language word</b>."
         },
         {
           "group_id": 17,
@@ -668,8 +668,8 @@
           "value": 71,
           "type_data": 1,
           "feedback_0":
-            "<b>Correct Answer!</b>  The correct answer is <b>Statement B: (Bat)</b> and <b>Statement D: (Banana)</b>, which all <b>contain an English language word</b>. Congratulations!",
+            "<b>Congratulations!</b> You are correct.  <b>Statement B: (Bat)</b> and <b>Statement D: (Banana)</b> all contain <b>an English language word</b>. ",
           "feedback_1":
-            "<b>Correct Answer!</b>  The correct answer is <b>Statement B: (Bat)</b> and <b>Statement D: (Banana)</b>, which all <b>contain an English language word</b>. Congratulations!"
+            "<b>Congratulations!</b> You are correct.  <b>Statement B: (Bat)</b> and <b>Statement D: (Banana)</b> all <b>contain <b>an English language word</b>. "
         }
       ]

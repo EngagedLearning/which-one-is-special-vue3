@@ -3,17 +3,24 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "serve": "vite preview",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",
-    "gh-pages-deploy-wois": "node scripts/gh-pages-deploy-wois.js"
+    "dev": "vite -d",
+    "build": "vite build -d",
+    "serve": "vite preview -d --logLevel 'info'",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src"
   },
   "dependencies": {
-    "aws-sdk": "^2.1427.0",
-    "bootstrap": "^5.3.0",
+    "@aws-sdk/client-cognito-identity-provider": "^3.388.0",
+    "@aws-sdk/client-s3": "^3.387.0",
+    "@aws-sdk/credential-provider-cognito-identity": "^3.388.0",
+    "@aws-sdk/credential-providers": "^3.388.0",
+    "@esbuild-plugins/node-globals-polyfill": "^0.2.3",
+    "aws-sdk-js-codemod": "^0.17.5",
+    "buffer": "^6.0.3",
+    "clear-npx-cache": "^1.0.1",
+    "curl": "^0.1.4",
     "element-plus": "^2.3.8",
-    "url": "^0.11.1",
+    "esbuild-plugin-polyfill-node": "^0.3.0",
+    "npm": "^9.8.1",
     "uuid": "^9.0.0",
     "vue": "^3.0.0",
     "vue-loader": "^17.2.2",
@@ -24,13 +31,19 @@
     "@babel/core": "^7.22.9",
     "@babel/eslint-parser": "^7.22.9",
     "@babel/preset-env": "^7.22.9",
-    "@vitejs/plugin-vue": "^1.6.1",
+    "@vitejs/plugin-vue": "^4.3.4",
     "@vue/compiler-sfc": "^3.0.0",
     "eslint": "^8.45.0",
     "eslint-plugin-vue": "^9.15.1",
-    "execa": "latest",
-    "unplugin-vue-components": "^0.25.1",
-    "vite": "^2.9.16"
+    "rollup-plugin-node-polyfills": "^0.2.1",
+    "rollup-plugin-pure": "^0.1.1",
+    "unplugin-auto-import": "^0.16.6",
+    "unplugin-vue-components": "^0.25.2",
+    "vite": "^4.4.9",
+    "vite-plugin-circular-dependency": "^0.2.1",
+    "vite-plugin-compression2": "^0.10.4",
+    "vite-plugin-imagemin": "^0.6.1",
+    "vite-plugin-node-polyfills": "^0.11.0"
   },
   "eslintConfig": {
     "root": true,
@@ -50,5 +63,8 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "browser": {
+    "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.browser"
+  }
 }

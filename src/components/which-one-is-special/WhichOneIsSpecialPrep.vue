@@ -451,8 +451,8 @@ import image_data_file from '../../assets/data/image_data.json';
 //import 'element-plus/dist/index.css'
 
 export default defineComponent({
-    name: "WhichOneIsSpecialPrep",
-    emits: {
+  name: "WhichOneIsSpecialPrep_Penn",
+  emits: {
     saveData:null
   },
     props: {
@@ -2649,7 +2649,7 @@ export default defineComponent({
               this.wois_unique_feature[this.group_choice] +
               ")</b> so <b>" +
             //  this.wois_unique_feature[this.group_choice] +
-              "</b> this property cannot be a <b>unique</b> to ONLY <b>Statement A</b>.";
+              "</b> this property cannot be <b>unique</b> to ONLY <b>Statement A</b>.";
           } else if (loop_var[0]["image"] != this.computed_image_array[0])
           { // single answer in wrong place. 
             // length is 1 so only one answer to check

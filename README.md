@@ -32,7 +32,7 @@ Open a version of the program locally;  Address is shown after compile.
 npm run dev
 ```
 
-### Compiles and minifies for production and allows it the production version to be run locally
+### Compiles and minifies for production and allows the production version to be run locally
 
 ```
 npm run build
@@ -54,7 +54,7 @@ npm run lint
 ### Build and deploy to github
 
 Checking in any changes should automatically rebuild the code and deploy it but you can run the script manually
-if necessary to solve issues. or experiment.  
+if necessary to solve issues or experiment.  
 
 ```
 npm run gh-pages-deploy-wois

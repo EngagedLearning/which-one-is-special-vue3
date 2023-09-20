@@ -459,7 +459,7 @@ props: {
   which_one_is_special_prep_id_prop: {
     type: Number,
     required: true,
-    default: 1,
+    default: 2,
   },
   penn_exp_prop: {
     type: Boolean,
@@ -1190,7 +1190,6 @@ methods: {
       if (this.wois_selected.length > 0) {
         // stop extra timing event.
         this.setInputAnswerArray(); // set the feedback.
-        this.operation_number++;
         let c_answer = null;
         if (this.feedback_counter <= 1 && this.select_mode_0) {
           c_answer = this.wois_data[this.group_choice].special_image_ans_id;
@@ -1223,33 +1222,14 @@ methods: {
           c_answer,
           this.wois_selected
         );
- //       console.log('correctAnswerArray ' + JSON.stringify(correctAnswerArray));
+       //       console.log('correctAnswerArray ' + JSON.stringify(correctAnswerArray));
         this.correct_answer_array = correctAnswerArray;
         this.answer_incorrect = !answer_is_correct;
         this.anyAnswerCorrect = this.isAnyAnswerCorrect(
           c_answer,
           this.wois_selected
         );
-        let typ = this.setTyp();
-        new_data = {
-          student_id: this.student_id,
-          type_data: typ,
-          group_id: this.group_choice,
-          operation_number: this.operation_number,
-          selection_array: this.wois_selected,
-          correct_ans_first_round:
-            this.wois_data[this.group_choice].special_image_ans_id,
-          correct_ans_second_round:
-            this.wois_data[this.group_choice].first_question_second_answer,
-          timestamp: Date.now(),
-          operation: answer_is_correct
-            ? "wois_prep_store_answer_correct"
-            : "wois_prep_store_answer_incorrect",
-          question_number: this.first_question
-            ? "first_question"
-            : "second_question",
-          feedback_counter: this.feedback_counter,
-        };
+        
         let fqsa =
           this.wois_data[this.group_choice].first_question_second_answer; // Format is {image: "A", value:'0'}
         // get the images and sort them alphabetically
@@ -1458,6 +1438,28 @@ methods: {
           console.log('answer_incorrect ' + this.answer_incorrect); 
         }
       }
+      let typ = this.setTyp();
+        new_data = {
+          student_id: this.student_id,
+          type_data: typ,
+          group_id: this.group_choice,
+          operation_number: this.operation_number,
+          selection_array: this.wois_selected,
+          correct_ans_first_round:
+            this.wois_data[this.group_choice].special_image_ans_id,
+          correct_ans_second_round:
+            this.wois_data[this.group_choice].first_question_second_answer,
+          timestamp: Date.now(),
+          operation: answer_is_correct
+            ? "wois_prep_store_answer_correct"
+            : "wois_prep_store_answer_incorrect",
+          question_number: this.first_question
+            ? "first_question"
+            : "second_question",
+          feedback_counter: this.feedback_counter,
+        };
+        this.answer_data.push(new_data);
+        this.operation_number++;
     } else if (this.second_question) {
       // two incorrect answers with different feedback;
       // second answer is true, you picked false /feedback_1
@@ -1470,6 +1472,7 @@ methods: {
         } else {
           prp = "Statement";
         }
+
        // need to add something when Image A does not contain the property. 
         // or when more than one Image including A contains the property. 
         var A_is_part_of_the_second_answer = false; 
@@ -1531,7 +1534,24 @@ methods: {
         !second_answer_incorrect_t_f && !second_answer_incorrect_f_t
       this.second_answer_correct = second_answer_is_correct;
       console.log('second_answer_correct is ' + this.second_answer_correct);
-      this.operation_number++; // increment the operation number
+      //j push the data
+      let typ = this.setTyp(); 
+      var new_data = {
+        student_id: this.student_id,
+        type_data: typ,
+        group_id: this.group_choice,
+        operation_number: this.operation_number,
+        selection_array: [this.second_question_answer], // array of size one.
+        correct_ans: this.wois_data[this.group_choice].second_question_answer,
+        timestamp: Date.now(),
+        operation: this.second_answer_correct
+          ? "wois_prep_store_second_answer_correct"
+          : "wois_prep_store_second_answer_incorrect",
+        question_number: this.first_question
+          ? "first_question"
+          : "second_question",
+        feedback_counter: this.feedback_counter,
+      };
       
       if (second_answer_incorrect_t_f) { // Have to pick anticipated answer. answer is true, selection is false
         this.show_feedback_modal = true;
@@ -1581,6 +1601,28 @@ methods: {
           this.question_feedback_message = this.question_feedback_message + mess_2; 
         }
       }
+      typ = this.setTyp();
+        new_data = {
+          student_id: this.student_id,
+          type_data: typ,
+          group_id: this.group_choice,
+          operation_number: this.operation_number,
+          selection_array: this.wois_selected,
+          correct_ans_first_round:
+            this.wois_data[this.group_choice].special_image_ans_id,
+          correct_ans_second_round:
+            this.wois_data[this.group_choice].first_question_second_answer,
+          timestamp: Date.now(),
+          operation: answer_is_correct
+            ? "wois_prep_store_answer_correct"
+            : "wois_prep_store_answer_incorrect",
+          question_number: this.first_question
+            ? "first_question"
+            : "second_question",
+          feedback_counter: this.feedback_counter,
+        }; // push data for the second question. 
+        this.answer_data.push(new_data);
+        this.operation_number++;
     }
     if (this.question_feedback_message === undefined){
       alert('this.quesiton_feedback is undefined.  Find out why.')
@@ -1990,7 +2032,23 @@ methods: {
     console.log("2nd_question " + this.second_question);
     this.show_feedback_modal = false;
     // record the OK click as an operation.
-    var new_data = {};
+    
+    // clear out the image captions
+    if (this.first_question) {
+      if ((this.group_choice < this.image_exp_max)) {
+        this.resetImageVariables(false); 
+      } else if ((this.group_choice >= this.image_exp_max && this.penn_exp_var)) {
+        this.resetImageVariables(true); 
+      }
+      else {
+        //statements
+        this.image_overlay_selected = ["", "", "", ""]; // reset the selections on the 2nd attempt
+        this.image_caption_1 = ["", "", "", ""];
+      }
+      this.select_mode_0 = false;
+      this.continue_mode = false;
+      this.select_mode_1 = true;
+      var new_data = {};
       let typ = this.setTyp();
       new_data = {
         student_id: this.student_id,
@@ -2009,45 +2067,33 @@ methods: {
       };
       this.answer_data.push(new_data);  // push the data on the stack store it at the end.
       this.operation_number++; 
-    // clear out the image captions
-    if (this.first_question) {
-      if ((this.group_choice < this.image_exp_max)) {
-        this.resetImageVariables(false); 
-      } else if ((this.group_choice >= this.image_exp_max && this.penn_exp_var)) {
-        this.resetImageVariables(true); 
-      }
-      else {
-        //statements
-        this.image_overlay_selected = ["", "", "", ""]; // reset the selections on the 2nd attempt
-        this.image_caption_1 = ["", "", "", ""];
-      }
-      this.select_mode_0 = false;
-      this.continue_mode = false;
-      this.select_mode_1 = true;
     }
     if (this.second_question) {
       // after closing the modal on the 2nd question go to the next operation.
-      let typ = this.setTyp();
-      var new_data = {
-        student_id: this.student_id,
-        type_data: typ,
-        group_id: this.group_choice,
-        operation_number: this.operation_number,
-        selection_array: [this.second_question_answer], // array of size one.
-        correct_ans: this.wois_data[this.group_choice].second_question_answer,
-        timestamp: Date.now(),
-        operation: this.second_answer_correct
-          ? "wois_prep_store_second_answer_correct"
-          : "wois_prep_store_second_answer_incorrect",
-        question_number: this.first_question
-          ? "first_question"
-          : "second_question",
-        feedback_counter: this.feedback_counter,
-      };
+      
       this.anyAnswerCorrect = false;
       this.feedback_counter++;
       this.answer_data.push(new_data);
       console.log('group_choice_array ' + this.group_choice_array);
+      var new_data = {};
+      let typ = this.setTyp();
+      new_data = {
+        student_id: this.student_id,
+        type_data: typ, // which experiment
+        group_id: this.group_choice,
+        operation_number: this.operation_number,
+        selection_array: [], 
+        correct_ans_first_round:null,
+        correct_ans_second_round:null,
+        timestamp: Date.now(),
+        operation: "close_modal_second_question",
+        question_number: this.first_question // first half of the question or second 
+          ? "first_question"
+          : "second_question",
+        feedback_counter: this.feedback_counter,  // before or after feedback 
+      };
+      this.answer_data.push(new_data);  // push the data on the stack store it at the end.
+      this.operation_number++; 
       if (this.group_choice_array.length < this.num_groups) {
         this.group_choice = this.chooseGroupChoice();
         console.log('new group_choice ' + this.group_choice);
@@ -2089,7 +2135,7 @@ methods: {
         };
 
         // done all of the problems.
-        this.$emit("save-data", this.problem_data);
+        this.$emit("saveData", this.problem_data);
         // go to the Survey page
         if (this.which_one_is_special_prep_id !== 2) {
           this.$router.push("/Survey");
@@ -2885,6 +2931,7 @@ methods: {
       }
       console.log('new data second question selection operation ' + JSON.stringify(new_data));
       this.answer_data.push(new_data);
+      this.operation_number++;
     }
   },
   scrambleImages: function (computed_image_array) {

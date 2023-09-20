@@ -8,9 +8,9 @@
   It allows for the user to download all files past a certain date into a single file named by the user. 
 
   The pages are deployed on Github here:
-  Markup : * https://engagedlearning.github.io/which-one-is-special-vue3/#/WhichOneIsSpecialPrep_2 
-           * https://engagedlearning.github.io/which-one-is-special-vue3/#/ThankYou_2
-           * https://engagedlearning.github.io/which-one-is-special-vue3/#/S3DataDownload 
+  * https://engagedlearning.github.io/which-one-is-special-vue3/#/WhichOneIsSpecialPrep_2 
+  * https://engagedlearning.github.io/which-one-is-special-vue3/#/ThankYou_2
+  * https://engagedlearning.github.io/which-one-is-special-vue3/#/S3DataDownload 
 
   All of the code is written using Vue version 3, javascript, CSS, and HTML and compiled and bundled using Vite Version 4.4.9;
 

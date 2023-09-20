@@ -21,6 +21,8 @@ const fs = require("fs");
     console.log('switching to ssh for push')
     await execa("git remote set-url origin ssh://git@github.com/EngagedLearning/which-one-is-special-vue3.git")
     console.log("Pushing to gh-pages...");
+    await execa("git config user.name 'bladekaj'");
+    await execa("git config user.email 'bladekaj@comcast.net'");
     await execa("git push origin HEAD:gh-pages --force")//, ["push", "origin", "HEAD:gh-pages", "--force"]);
     await execa("rm -r dist")//, ["-r", folderName]);
     await execa("git checkout -f main")//, ["checkout", "-f", "main"]);

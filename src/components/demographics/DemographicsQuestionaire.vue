@@ -52,9 +52,7 @@
                                 </el-option>
                             </el-select>
                         </el-form-item>
-                        <el-form-item label = "Education" :rules="[
-                            { required: true, message: 'Education is required.' },
-                            ]">
+                        <el-form-item label = "Education" >
                             <el-select id="input-6" class="m-2" v-model="form.education" :options="educations" placeholder="Education Level?">
                                 <el-option
                                     v-for="item in educations" :key="item.value" :label="item.label" :value="item.value"

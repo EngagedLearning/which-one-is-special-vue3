@@ -35,6 +35,9 @@ export default {
     this.sessionStorage.setItem('user_id', uuidv4());
     this.sessionStorage.setItem('session-id', uuidv4()); // store another one as a session-id
     this.sessionStorage.setItem('start-time', Date.now());
+	
+	  const url = new URL(location.href);
+	  this.sessionStorage.setItem('PROLIFIC_PID', url.searchParams.get('PROLIFIC_PID'));
   },
   mounted() { },
   methods: {

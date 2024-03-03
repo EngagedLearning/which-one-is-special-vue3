@@ -20,6 +20,7 @@
 Thanks the user for their participation.
 For Mechanical Turk Users, it gives them the code to enter to get their stipened.
 For Pennasota users, it asks them to hit the 'q' key to end the experiment. 
+The last WhichOneIsSpecial experiment was used by Pennasota for their eye-tracking experiments. 
 */
 export default {
     name: "ThankYou",
@@ -41,7 +42,6 @@ export default {
     },
     mounted: function () {
         this.sessionStorage = window.sessionStorage;
-        console.log('sessionStorage ' + JSON.stringify(this.sessionStorage))
         let sessionData = {}; // adding session data to the log.
         Object.keys(this.sessionStorage).forEach((key) => {
             sessionData[key] = this.sessionStorage.getItem(key);

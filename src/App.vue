@@ -52,7 +52,7 @@ export default {
       let sess = problemData["sessionData"]["session-id"];
       let user = problemData["sessionData"]["user_id"];
       let d = new Date(Date.now()).toISOString();
-      // change any colons in the date to _ since it is just a file name
+      // change any colons in the date to _ since it is just a file name and S3 doesn't like colons(:)
       let d0 = d.replaceAll(':', '_');
       
       var fName = "/data/which_one_is_special_"; // file name is based upon the type of data, the date and the user id
@@ -85,9 +85,6 @@ export default {
           d +
           ".json";
       }
-      console.log("fname " + fName);
-      console.log("s3 problemdata:" + JSON.stringify(problemData)); // to reference data at least once.
-
       // Since these Idenity pool users only have read/write permission on a single bucket
       // I am going to leave this id in the code since it is not much of a security risk.
 
@@ -112,8 +109,6 @@ export default {
     */
     async sendCommand(command,fName) {
       try {
-        console.log('calling send command'); 
-        console.log('Command is ' + (command)); 
         var s3BucketName = "enlearn-efplus-math-which-one-is-special-results/";
         var bucketRegion = "us-west-2";
         var IdentityPoolId = "us-west-2:77d2e523-774d-4782-a18b-90c1158a0906";
@@ -133,7 +128,6 @@ export default {
             })
         });
         await client_s3.send(command)
-        console.log('Successfully uploaded data to ' + s3BucketName + '/' + fName);
       } catch (err) {
         console.error(err, err.stack);
       }
@@ -148,10 +142,6 @@ export default {
       Object.keys(this.sessionStorage).forEach((key) => {
         this.savedData.sessionData[key] = this.sessionStorage.getItem(key);
       });
-      console.log("saved Data");
-      console.log(JSON.stringify(this.savedData));
-      console.log("type " + problemData.type);
-      console.log("posting data to s3");
       this.writeToS3(this.savedData, problemData.type);
     },
   },

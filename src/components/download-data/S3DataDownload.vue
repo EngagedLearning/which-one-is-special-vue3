@@ -127,14 +127,11 @@ export default {
     },
     methods: {
         listObjects() {
-            console.log('listObjects');
             this.listObjectsFromBucket(this.s3BucketName);
         },
         downloadObjects() {
-            console.log('download objects');
             if (this.s3_data.length > 0) {
                 var s3BucketName = "enlearn-efplus-math-which-one-is-special-results";
-                console.log('calling downloadS3Files');
                 this.downloads3Files(this.s3_data, s3BucketName);
             }
         },
@@ -148,8 +145,6 @@ export default {
 
             // try to write the data to the bucket
             var buf = Buffer.from(JSON.stringify(problemData));
-            console.log('buf is ' + (buf));
-            console.log('creating a command');
             //var request
             var command = new PutObjectCommand({
                 Bucket: s3BucketName,
@@ -162,8 +157,6 @@ export default {
             this.sendCommand(command, fName);
         },
         async listObjectsFromBucket(my_bucket) {
-            console.log('my_bucket ' + my_bucket);
-            console.log('last_modifed_date ' + this.last_modified_date);
             var bucketRegion = "us-west-2";
             var IdentityPoolId = "us-west-2:77d2e523-774d-4782-a18b-90c1158a0906";
             const command = new ListObjectsV2Command({
@@ -181,9 +174,7 @@ export default {
                 });
                 let isTruncated = true;
 
-                console.log("Your bucket contains the following objects:\n")
                 let contents = [];
-                // console.log('date is  last-modified' + (this.last_modified_date));
                 while (isTruncated) {
                     this.loading = true;
                     const { Contents, IsTruncated, NextContinuationToken } = await client_s3.send(command);
@@ -194,7 +185,6 @@ export default {
                     isTruncated = IsTruncated;
                     command.input.ContinuationToken = NextContinuationToken;
                 }
-                // console.log(JSON.stringify(contents));
                 this.loading = false;
                 this.s3_data = contents;
                 this.total_files = this.s3_data.length; 
@@ -207,7 +197,6 @@ export default {
             }
         },
         downloadObjectAsJson: function (exportObj, exportName) {
-            console.log('downloadObjectsAsJson');
             var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportObj));
             var downloadAnchorNode = document.createElement('a');
             downloadAnchorNode.setAttribute("href", dataStr);
@@ -217,7 +206,6 @@ export default {
             downloadAnchorNode.remove();
         },
         async downloads3Files(my_list, my_bucket) {
-            console.log('my_list ' + JSON.stringify(my_list));
             var bucketRegion = "us-west-2";
             var IdentityPoolId = "us-west-2:77d2e523-774d-4782-a18b-90c1158a0906";
             var s3_list = [];
@@ -244,15 +232,10 @@ export default {
                 }
             }
                 if (s3_list.length > 0) {
-                    console.log('s3_list ' + s3_list);
-                    console.log('saved_filename ' + this.saved_filename);
-                    console.log(this.saved_filename.endsWith('json'));
                     if (this.saved_filename != "") {
                         if (this.saved_filename.endsWith("json")) {
-                            console.log('ends in .json')
                             this.downloadObjectAsJson(s3_list, this.saved_filename);
                         } else {
-                            console.log('does not end with json')
                             var s_filename = this.saved_filename + ".json";
                             this.downloadObjectAsJson(s3_list, s_filename);
                         }

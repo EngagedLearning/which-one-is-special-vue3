@@ -448,7 +448,15 @@ import wois_options_file from '../../assets/data/wois_options.json'
 import wois_data_file from '../../assets/data/wois_data.json'
 import image_data_file from '../../assets/data/image_data.json';
 
-//import 'element-plus/dist/index.css'
+/*===============================================================
+// WhichOneIsSpecialPrep was an activity designed to introduce the 
+// WhichOneIsSpecial activity.  It took users through each step of the 
+// process, asking users to identify properties in an image first and then
+// asking them if it was a unique property to only the upper left image.
+// It seemed to be more effective than just asking which property from a list was 
+// special to a particular image.  Much like the fraction experiments, going through
+// each step proved to be more effective than dropping people at the end goal first
+===================================================================================*/
 
 export default defineComponent({
 name: "WhichOneIsSpecialPrep_Penn",
@@ -570,9 +578,7 @@ computed: {
   image_0_computed: {
     get() {
       let start = this.group_choice * 4;
-      //console.log('start is ' + start)
       let image = this.image_data[start].image_name;
-      //console.log('image name is ' + image);
       return (image);
     },
     set(inputValue) {
@@ -838,7 +844,6 @@ methods: {
     }
   },
   computeSubmitDisabled: function () {
-    //console.log('computing sumbit disabled')
     if (this.first_question) {
       let sum = this.image_overlay_selected.reduce(
         (partialSum, a) => partialSum + a,
@@ -1049,9 +1054,6 @@ methods: {
   },
  
   scrambleAnswerArray: function (scrambledImageArray, originalAnswerArray) {
-    //console.log('SCRAMBLE ANSWER ARRAY')
-   // console.log('original answer array ' + JSON.stringify(originalAnswerArray));
-   // console.log('scrambled answer array ' + JSON.stringify(scrambledImageArray));
     let arr = []; // output array
     let val = "";
     let text = "";
@@ -1069,7 +1071,6 @@ methods: {
       originalAnswerArray[0].text == "B" && 
       originalAnswerArray[0].value == 57
     ) {
-      //console.log("Setting the Only Statement B value")
       if (!this.penn_exp_var) {  // text only
         arr[0] = {
           image: this.image_data[scrambledImageArray[1]].image_name,
@@ -1086,7 +1087,6 @@ methods: {
     } else {
       for (let i = 0; i < scrambledImageArray.length; i++) {
         for (let j = 0; j < originalAnswerArray.length; j++) {
-          //console.log('i:j ' + i + ':' + j);
           if (originalAnswerArray[j].value == scrambledImageArray[i]) {
             if (i == 0) {
               if (g_choice < this.image_exp_max) {
@@ -1180,7 +1180,6 @@ methods: {
   },
   recordWois: function () {
     // submit button
-    console.log("Clicking Submit Button");
     // set the values based upon what is selected
     if ((this.group_choice < this.image_exp_max) || (this.group_choice >= this.image_exp_max && this.penn_exp_var)) {
       this.wois_selected = this.image_overlay_selected;
@@ -1222,7 +1221,6 @@ methods: {
           c_answer,
           this.wois_selected
         );
-       //       console.log('correctAnswerArray ' + JSON.stringify(correctAnswerArray));
         this.correct_answer_array = correctAnswerArray;
         this.answer_incorrect = !answer_is_correct;
         this.anyAnswerCorrect = this.isAnyAnswerCorrect(
@@ -1371,7 +1369,6 @@ methods: {
           }
         } else {
           // answer is incorrect
-          console.log('answer is incorrect');
           if (this.feedback_counter < 1) {
             this.answer_data.push(new_data);
             this.submit_disabled = true;
@@ -1432,10 +1429,6 @@ methods: {
                 "</b>";
             }
           }
-          console.log('continue_mode ' + this.continue_mode);
-          console.log('show feedback modal ' + this.show_feedback_modal);
-          console.log('feedback_counter end 1505 ' + this.feedback_counter);
-          console.log('answer_incorrect ' + this.answer_incorrect); 
         }
       }
       let typ = this.setTyp();
@@ -1514,9 +1507,6 @@ methods: {
         {
            mess_2 = "<b> " + prp + " A</b> is the only " + prp + " that contains the property <b>" + this.wois_unique_feature[this.group_choice] + "</b> so it must be <b>unique</b> to <b>" + prp + " A </b>" 
         }
-        console.log('mess_0 1595 ' + mess_0);
-        console.log('mess_1 1595 ' + mess_1);
-        console.log('mess_2 1595 ' + mess_2);
       var second_answer_incorrect_t_f = false; 
       var second_answer_incorrect_f_t = false; 
       if (this.wois_data[this.group_choice].second_question_answer == 1 &&
@@ -1527,13 +1517,10 @@ methods: {
         this.second_question_answer == 1) {  // false answer true response
         second_answer_incorrect_f_t = true;
       }
-      console.log('second_answer_incorrect_t_f ' + second_answer_incorrect_t_f);
-      console.log('second_answer_incorrect_f_t ' + second_answer_incorrect_f_t);
       this.computeSubmitDisabled(); 
       var second_answer_is_correct =
         !second_answer_incorrect_t_f && !second_answer_incorrect_f_t
       this.second_answer_correct = second_answer_is_correct;
-      console.log('second_answer_correct is ' + this.second_answer_correct);
       //j push the data
       let typ = this.setTyp(); 
       var new_data = {
@@ -1627,8 +1614,6 @@ methods: {
     if (this.question_feedback_message === undefined){
       alert('this.quesiton_feedback is undefined.  Find out why.')
     }
-    console.log('show_feedback_modal ' + this.show_feedback_modal);
-    console.log('question_feedback_message 1645 ' + this.question_feedback_message);
   },
   isImageAnswerCorrect: function (correctAnswer, inputAnswer) {
     // arrays are the same type
@@ -1704,7 +1689,6 @@ methods: {
         this.show_length_short_feedback = false;
       }
       if (arr.length !== ans.length) {
-      //  console.log("lengths are not equal returning false");
         return false;
       } 
       // only sort on images not statement.
@@ -1730,7 +1714,6 @@ methods: {
           }
         }
       }
-      console.log('returning true because all answers matched');
       return true;
     } else if (this.second_question) {
       // not giving feedback at the moment
@@ -1738,7 +1721,6 @@ methods: {
 
       return true;
     }
-    console.log('No return paths found; Returning true as default.');
     return true;
   },
   isAnyAnswerCorrect: function (correctAnswer, inputAnswer) {
@@ -1792,7 +1774,6 @@ methods: {
     return ans;
   },
   translateTextImageAnswer: function (inputAnswer) {
-//    console.log('translateTextImageAnswer input ' + JSON.stringify(inputAnswer));
     let group = this.group_choice;
     let start = group * 4;
     let ans = [];
@@ -1896,7 +1877,6 @@ methods: {
       }
     }
     // now get the unselected answers and compare them to the correct answers
-    //    console.log("setting unselected answers");
     for (let k = 0; k < correctAnsArray.length; k++) {
       if (correctAnsArray[k] == -1) {
         // unselected
@@ -1904,8 +1884,6 @@ methods: {
           //correctAnswers
           let ans_index = arr[j] % 4;
           if (ans_index == k) {
-            // it should have been selected but wasn't set
-            //        console.log("setting unselected incorrect ");
             correctAnsArray[k] = -2;
             break; //break out of inner loop
           }
@@ -1916,7 +1894,6 @@ methods: {
   },
   computeHighlights: function () {
     // if the answer is correct highlight image 0
-    //   console.log("Computing Highlights");
     this.image_caption_0 = "";
     if ((this.group_choice < this.image_exp_max)) {
       this.image_overlay_selected = [0, 0, 0, 0]; // reset the selections on the 2nd attempt
@@ -1966,8 +1943,6 @@ methods: {
     this.computed_image_array[2] = this.image_2_computed;
     this.computed_image_array[3] = this.image_3_computed;
     
-    //this.wois_data[this.group_choice].scrambled_order = this.scrambleImageArray(this.wois_data[this.group_choice].original_order)
-    //console.log('wois_data after scramble ' + JSON.stringify(this.wois_data[this.group_choice]));
     this.scramble_image_array = this.scrambleImages(this.computed_image_array);
     this.image_0_computed = this.scramble_image_array[0];
     this.image_1_computed = this.scramble_image_array[1];
@@ -2027,9 +2002,6 @@ methods: {
     this.correct_answer_array = [-1, -1, -1, -1];
   },
   modalCloseEvent: function () {
-    console.log("modal close event");
-    console.log("first question " + this.first_question);
-    console.log("2nd_question " + this.second_question);
     this.show_feedback_modal = false;
     // record the OK click as an operation.
     
@@ -2074,7 +2046,6 @@ methods: {
       this.anyAnswerCorrect = false;
       this.feedback_counter++;
       this.answer_data.push(new_data);
-      console.log('group_choice_array ' + this.group_choice_array);
       var new_data = {};
       let typ = this.setTyp();
       new_data = {
@@ -2096,7 +2067,6 @@ methods: {
       this.operation_number++; 
       if (this.group_choice_array.length < this.num_groups) {
         this.group_choice = this.chooseGroupChoice();
-        console.log('new group_choice ' + this.group_choice);
         this.group_choice_array.push(this.group_choice);
         
         // reset the images
@@ -2125,7 +2095,6 @@ methods: {
         }
       } else {
         // push the data and move to the survey
-        console.log("pushing_data to amazon");
 
         this.problem_data = {
           student_id: this.student_id,
@@ -2295,7 +2264,6 @@ methods: {
         this.feedback_counter >= 1 &&
         ((this.group_choice < this.image_exp_max))
       ) {
-        //console.log('inside second if correct answer ' + this.answer_incorrect); 
         this.image_overlay_computed[0] = "image-overlay-highlight";
         this.image_overlay_computed[1] = "image-overlay";
         this.image_overlay_computed[2] = "image-overlay-second-row-second-question";
@@ -2826,7 +2794,6 @@ methods: {
     }
   },
   chooseGroupChoice: function () {
-    //   console.log("choosing group_choice");
     var new_group_choice = this.group_choice_array[0];
     var counter = 0;
     while (
@@ -2903,12 +2870,9 @@ methods: {
       this.wois_selected = e;
       if (this.group_choice > 11) {
         this.image_overlay_selection = e; // text based answer
-        //  console.log('text selection image_overlay_selection ' + this.image_overlay_selection);
       }
     } else if (this.second_question) {
       this.submit_disabled = false;
-     // this.second_question_answer = e;
-     // console.log('second_question_answer after ' + JSON.stringify(this.second_question_answer));
      // record the selection 
      var new_data = {};
      let typ = this.setTyp();
@@ -2929,13 +2893,11 @@ methods: {
           : "second_question",
         feedback_counter: this.feedback_counter,  // before or after feedback 
       }
-      console.log('new data second question selection operation ' + JSON.stringify(new_data));
       this.answer_data.push(new_data);
       this.operation_number++;
     }
   },
   scrambleImages: function (computed_image_array) {
-    console.log("SCRAMBLE IMAGES");
     var output_array = ["", "", "", ""];
     var o_array = this.wois_data[this.group_choice].original_order;
     var s_array = this.wois_data[this.group_choice].scrambled_order;
@@ -2954,7 +2916,6 @@ methods: {
     let wois_options_filter = this.wois_options.filter(
       (wois) => wois.group_id == this.group_choice
     );
-    //console.log('wois_options_filter before' + JSON.stringify(wois_options_filter))
     for (let i = 0; i < wois_options_filter.length; i++) {
       wois_options_filter[i].value = s_array[i];
     }

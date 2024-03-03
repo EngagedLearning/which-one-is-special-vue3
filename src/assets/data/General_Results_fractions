@@ -1,0 +1,68 @@
+General Results.  (From the specific Fraction experiments. This data was copied from Slack messages and other text
+files and documented here.)
+There were two main images; One with various colored cars stopped at a stop light and a seond with 3 road signs on the 
+side of a highway.  Both images were found through Google Searches and downloaded for the experiment. 
+1. Cars: 4 users submitted data, 1 tried to get the money anyway
+2. Signs: 4 Users seemed to have tried; One put in random stuff (actually seemed to be an incremental counter) until the answer appeared.
+3. Signs: One person out of 8 opened the directions. (Signs)
+3. Cars much easier than Signs based upon the number of questions where we had to show the answer;
+    Cars -- 10 questions / 34. 
+    Question #   Number of Students.  Question
+       8             2/4                  How Many Traffic Lanes?
+       13            3/4                  How many vehicles with doors?
+       26            1/4                  Fraction of all vehicle-filled lanes with non-red vehicles?
+       27            1/4                  Estimate the width of the image?
+       28            1/4                  Estimate the height of the image?
+       29            1/4                  Ratio of height to width of the image
+       30            1/4                  Width of the traffic light
+       31            1/4                  Height of the traffic light
+       32            1/4                  Ratio of height to width of light
+       33            3/4                  Fraction image with vehicles
+       34            1/4                  Fraction image in shadow
+    Signs -- 23 Questions/36. (eliminating the guy who didn't try)
+    Question #        Number of Students     Question
+       0               1/4                     How many road signs
+       1               1/4                     How many round road signs
+       5               2/4                     How many words
+       6               3/4                     Fraction of all signs that are round
+       8               1/4                     How many signs with words
+       10              2/4                     Fraction of all signs with numbers
+       12              3/4                     Fraction of words of length greater than 3
+       15              1/4                     How many signs with 1 post
+       16              3/4                     Fraction with 1 post
+       17              3/4                     Fraction with 2 posts
+       19              1/4                     White signs achored with 2 posts
+       20              3/4                     Fraction white signs achroed by 2 posts
+       22              1/4                     Signs with number that contain numbers and words
+       23              3/4                     Fraction of number signs with words and numbers
+       26              3/4                     Fraction 2 post signs with numbers
+       27              3/4                     Estimate the diameter of the round sign in feet
+       28              3/4                     Ratio of round sign diameter over post height
+       29              3/4                     Height of rain sign in feet
+       30              3/4                     Width of rain sign in feet
+       31              4/4                     Ratio of height to width of rain sign
+       32              1/4                     Height of rectangle on rain sign
+       33              4/4                     Ratio of rectangle height to sign height
+       34              2/4                     Fraction covered by signs
+       36              1/4                     Fraction sky
+ 4. Based upon the abvoe, mTurkers have no clue how to estimate given a scale and a known value. They are pretty poor at estimating percentage covered as well.  Probably more examples and hints to help. 
+
+ 5. Most helpful comment from the survey came from the guy who got it.  One person seemed to be doing a completely different activity or had a bot fill things out.
+ Helpful comment:
+ "I think this activity was meant to show how fractions could be useful in everyday life. Something to do with spatial awareness as well.""	
+ "Some of the later questions weren't quite as clear as those in the beginning. That being said, I never truly found the questions difficult to answer. More challenging in a way I suppose. I think things were better when the answers were more object and not subjective."
+ Confusing comment:
+ "Students shuffle the cards and place them face down. Each student chooses two cards and places them with the smaller card for the numerator and the larger card"
+ "goods"
+
+  Test    User Id         Number Missed completely
+  Cars   A1EQ8UXKOUDYT4            1. (13)
+  Cars   A1N53V41FMCR7Q            4 (8,13,29,33)
+  Cars   A3UV55HC87DO9C            7 (8, 13,27,28,30,33,34)
+  Cars   AJF954955YWZG.            3 (26,32,33)
+
+  Signs A20Q7CEDAUL4FR            30 (elminated from above results)
+  Signs A2SPKUR5RDJHI8            13  (6,12,16,17,20,23,26,27,28,30,31,33,34)
+  Signs A2VO8C41JJIQY9             5 (29,31,32,33,34)
+  Signs  A54RUGNM2MM4C            20 (5,6,8,10,12,15,16,17,19,20,22,23,26,27,28,29,30,31,33,36)
+  Signs ATBBPV37O4K6N             17 (0,1,5,6,10,12,16,17,20,23,26,27,28,29,30,31,33)

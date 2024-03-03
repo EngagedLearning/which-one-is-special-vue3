@@ -1,0 +1,37 @@
+Spot It Experiment Notes:
+1.  Ask if they have heard of SpotIt and/or remember what YE has said before.
+    Depending upon the answer, explain SpotIt and our version of it. 
+2.  Two main interfaces
+	Selectable, separable objects (eggs). (show Spotit_2, SpotIt_5, SpotIt_9)
+	Abstract; 
+2. Goal; Users create fractions out of properties of objects on the cards
+	For example, color, size, shape, texture, patterns, width, height etc...
+	Idea is to 1) show that fractions are applicable outside the classroom and similarly expand on CF. 
+3. 10 interfaces thus far with some having as many as 3 iterations
+	Early interfaces were confusing.  Users did not appear to try; Supposition is that they didn't understand. 
+	Hard to tell with MTurk users with the profit motivation.
+	Honing in on a more coherent interface.  More of a tutorial than early versions.
+	2nd to last version was better in that users were starting to recognize fractions made from 
+	all of the objects and global properties.  Less likely to see smaller groups made from
+	less universal properties (show eggs).  Got great help from ELC members. Gave us ideas on how to make it clearer. 
+	Abstract interface the most confusing.  Subjects copied example. Showed little creative thought. 
+	Seemed like we need to teach them the idea on the less abstract interface and then move to abstract. 
+4. Specific results.
+    Demographics: ~(100 people) Median age 35; Mostly (Community) College educated;Mostly White (2/3);Mostly women (54%);Mostly 'Very comfortable' with fractions(?);Mostly took Calculus as last class. 
+    This really points towards confusing interfaces, if true. Or they did fractions but don't get it.  
+	fraction '1/3'; ~1/30 people are able to find it. Same mistake; Denominator selection does not make sense. 
+	x/11; much better results. Global property of color easier to see?  Pattern not immediately obvious? 
+	Abstract results very poor; Users did not make valid fractions or copied the example over and over.
+	Numerator was not a subset of denominator. 
+5. Last Experiment:
+   Everyone got all of the fractions after at most one try.  Best result yet. This points to the use of the fraction phrases rather than the feedback although
+   they worked together in that the feedback gave them another chance to look at it. 
+   '2/3' caused the most trouble with 4/5 missing it once before getting it.
+   1 person had all the answers correct on the first try.  Show table. 
+   Survey ratings suggest the directions were easy to understand, the interface was mostly intuitive and the activity was not difficult.
+   One woman wanted her son to use it in the future. (Seems like a great endorsement.  Not made up. )
+6. Future steps...lots of ideas.  Current version seems promising (finally)
+    a. Use this as a tutorial and then test them with the rest of the fractions that are possible without feedback or phrases and see what happens. Different images etc... 
+    b. Put something similar in the abstract version to see if that activity can be explained better.  Ultimate goal is good results from abstract version to promote CF  
+    c. Test on target demographic (always a goal.) 
+    d. See if fits in with activities of prototype groups. 

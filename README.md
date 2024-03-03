@@ -1,6 +1,8 @@
 # which-one-is-special-vue3
-  Which-One-Is-Special-Vue3 is an experiment run as part of the EF+Math program by Enlearn.  
-  The main user interface asks users to first, find and select images or statements which satisfy a property given to them as a question (e.g.  'Select All Images which show a picture of an apple.' or 'Select all statements which contain the letter "e"). Secondly, users are asked to determine if the property is unique to the first image or statement in the upper left hand corner of the interface.(Image/Statement A). 
+  Which-One-Is-Special-Vue3 is an experiment run as part of the EF+Math program by Enlearn funded by AERDF.  
+  The main user interface asks users to first, find and select images or statements which satisfy a property given to them as a question (e.g.  'Select All Images which show a picture of an apple.' or 'Select all statements which contain the letter "e"). Secondly, users are asked to determine if the property is unique to the first image or statement in the upper left hand corner of the interface.(Image/Statement A).  To be unique, it needed to be true and only true for the upper left hand image.  If it was part of any other image, the answer was false. The experiment proved to be very difficult for most users. For a summary of results, please see the text files in the ./src/assets/data directory.  Files include Spot_It Notes, Notes_from_EF+Math_Constultancies, General_conclusions_fractions and General_Results_fractions. 
+
+  The program was developed using Vue3 and Vite.  It is the only experiment developed using Vue3.  All others were developed using Vue2 and webpack. 
 
   The code also contains a 'Thank You' page, a data download (from s3) page, a demographic questionaire page and a survey page.  The demographic and survey pages were used with a Mechanical Turk experiment.  
   The data download page can be found locally under /S3DataDownload 

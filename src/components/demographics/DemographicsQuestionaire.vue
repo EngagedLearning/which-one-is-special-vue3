@@ -373,8 +373,6 @@ export default defineComponent ({
             // set the session_id to the worker_id
 
             // store the demographic data in the problemSpecificData
-            
-            console.log("pushing demographic data");
             this.$emit("saveData", logData);
             this.saveSuccessMessage =
                 "Thank you! Please click on 'Start the activity!' button to proceed.";
@@ -382,6 +380,10 @@ export default defineComponent ({
         startActivity: function () {
             //console.log("experiment_id " + this.experiment_id);
             // starting with 20 so it doesn't conflict with a previous version
+            // There are 20 versions of WhichOneIsSpecial using Vue2. We started using 
+            // Vue3 because of random bug in version 20 that was found after converting to Vue3.
+            // Some changes in Vue2 made me suspect there was a bug in Vue2 but it turned out to be
+            // a random non-repeating bug in my code (since found and fixed in this version.)
             if (this.experiment_id == 20) this.$router.push("/WhichOneIsSpecial_0");
             else if (this.experiment_id == 21)
                 this.$router.push("/WhichOneIsSpecialPrep_1");

@@ -12,15 +12,14 @@ const fs = require("fs");
     // Understand if it's dist or build folder
     // make sure 'global':{} is commented out in vite.config.js
     const folderName = fs.existsSync("dist") ? "dist" : "build";
-    console.log('folderName ' + folderName);
     
-    //  await execa("git", ["--work-tree=", folderName, "add", "--all"]);
+    /* ==========================================================================
+    // NOTE: user.name and password are left blank for use by the current user. 
+    // The user needs an account and password on Github to use this build script. 
+    ==============================================================================*/
     await execa("git --work-tree dist add --all");
-    console.log('git worktree add');
     await execa("git --work-tree dist commit -m gh-pages")//, ["--work-tree=", folderName, "commit", "-m", "gh-pages"]);
-    console.log('switching to ssh for push')
     await execa("git remote set-url origin ssh://git@github.com/EngagedLearning/which-one-is-special-vue3.git")
-    console.log("Pushing to gh-pages...");
     await execa("git config user.name 'bladekaj'");
     await execa("git config user.email 'bladekaj@comcast.net'");
     await execa("git push origin HEAD:gh-pages --force")//, ["push", "origin", "HEAD:gh-pages", "--force"]);

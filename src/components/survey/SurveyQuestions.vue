@@ -220,6 +220,7 @@ export default defineComponent({
     methods: {
         /*
         Reset the survey entries 
+        Survey was given at the end of the experiment after the activity. 
         Entries are:
         activity_text: purpose of activity (free form text)
         comment_text: comments or criticisms of the activity (free form text)
@@ -244,7 +245,6 @@ export default defineComponent({
             Submit the entries to the top level App.vue so they can be written to Amazon S3.
         */
         submitEntries: function () {
-            console.log("submitting entries");
             this.sessionStorage = window.sessionStorage;
             let user = this.sessionStorage.getItem("user_id");
             let new_state = {
@@ -261,7 +261,6 @@ export default defineComponent({
                 comment_text: this.comment_text,
             };
             this.survey_data = new_state;
-            console.log("survey data " + JSON.stringify(this.survey_data));
             this.$emit("saveData", this.survey_data);
             this.$router.push("/ThankYou_1");
         },
